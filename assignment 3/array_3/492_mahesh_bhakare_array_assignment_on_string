@@ -1,0 +1,1726 @@
+
+
+/*
+Title- Write a C program to accept string with multiple spaces from user and print as it is.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    printf("Enter the string: ");
+    fgets(str,100,stdin);
+    printf("Accepted string is: %s\n",str);
+}
+
+
+
+/*
+Title- Write a C program to accept string with multiple spaces from user and print it with a sinlge space as
+a delimiter.
+Eg:
+Input String:
+_____India_____is_my_________country___________________
+Output String:
+India_is_my_country
+(Consider _ as space)
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+ 
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,j;
+    printf("enter the string: ");
+    fgets(str,sizeof(str),stdin);
+    
+//     removing multiple spaces
+    for(j=0;str[j]!='\0';j++)
+    {
+        if(str[j]==32 && str[j+1]==32)
+        {
+            for(i=j;str[i]!='\0';i++)
+            {
+                str[i]=str[i+1];
+            }
+            
+        }
+        if(str[j]==32 && str[j-1]==32 && j!=0)
+        {
+            j-=2;
+            
+        }   
+    }
+    
+    
+//    to remove all the spaces at start and end
+    if(str[0]==32)
+    {
+        for(j=0;str[j]!='\0';j++)
+        {
+            str[j]=str[j+1];
+        }
+    }
+    if(str[0]==32)
+    {
+        
+    }
+    else
+    {
+        for(j=0;str[j]!='\0';j++);
+        if(str[j-1]==10 && str[j-2]==32)
+        {
+            j--;
+            str[j-1]=str[j];
+            str[j]=str[j+1];
+        }
+        if(str[j-1]==32&& str[j]=='\0')
+        {
+            str[j-1]=str[j];
+        }
+    }
+    printf("%s\n",str);
+}
+
+
+
+
+/*
+Title- Write a C program to print count of number characters in given string.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,count=0;
+    printf("Enter the string: ");
+    fgets(str,100,stdin);
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]>=48 && str[i]<=57)
+        {
+            count++;
+        }
+    }
+    printf("No. of numeric characters in above string are: %d\n",count);
+    
+}
+
+
+
+ 
+/*
+Title- Write a C program to accept string and print it in the reverse order.
+Eg:
+Input String:
+India is my country
+Output String:
+yrtnuoc ym si aidnI.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("Enter the string: ");
+    fgets(str,100,stdin);
+    for(i=0;str[i]!='\0';i++);
+    i--;
+    if(str[i]==10)
+    {
+        i--;
+    }
+    printf("Reverse string is:");
+    for( ;i>=0;i--)
+    {
+        printf("%c",str[i]);
+    }
+    printf("\n");
+}
+
+
+
+
+/*
+Title- Write a C program to count count of number of vowels and number of consonants in the given
+string.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,vovels=0,consonants=0;
+    printf("Enter the string: ");
+    fgets(str,100,stdin);
+    for(i=0;str[i]!=0;i++)
+    {
+        if(str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u' || str[i]=='A' || str[i]=='E' || str[i]=='I' || str[i]=='O' || str[i]=='U')
+        {
+            vovels++;
+        }
+        else
+            if((str[i]>=65 && str[i]<=90) || (str[i]>=97 && str[i]<=122))
+            {
+                consonants++;
+            }
+    }
+    printf("No. of Vovels are: %d\nNo. of Consonants are: %d\n",vovels,consonants);
+    
+}
+
+
+
+
+/*
+Title- Write a C program to reverse a given string as below.
+Eg:
+Input String:
+India is my country
+Output String:
+aidnI si ym yrtnuoc
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+ 
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100],temp;
+    int i,j,k;
+    printf("enter the string: ");
+    fgets(str,sizeof(str),stdin);
+
+    
+//     logic for swapping each word at its place
+
+    for(j=0;str[j]!='\0'; )
+    {
+        for(i=j;str[i]!=32 && str[i]!='\0';i++);
+        i--;
+        if(str[i]==10)
+        {
+            i--;
+        }
+        k=i;
+        for( ;j<=i;j++,i--)
+        {
+            temp=str[j];
+            str[j]=str[i];
+            str[i]=temp;
+        }
+        j=k;
+        j++;
+        if(str[j]==32)
+        {
+            for( ;str[j]==32;j++);
+        }
+        else
+        {
+            if(str[j]==10)
+            {
+                j+=2;
+            }
+            else
+            {
+                j++;
+            }
+        }
+    }
+    printf("final output is: %s\n",str);  
+} 
+
+
+
+
+/*
+Title- Write a C program to replace space with ‘$’ in given string.
+Eg:
+Input String:
+India is my country
+Output String:
+India$is$my$coutry
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("Enter the string: ");
+    fgets(str,100,stdin);
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]==32)
+        {
+            str[i]='$';
+        }
+    }
+    printf("Output string: %s\n",str);
+}
+
+
+
+
+
+
+/*
+Title- Write a program which accept sentence from user and print number of words from that sentence.
+Input String:
+India_is_my_country
+Output:
+4
+Input String:
+______India______is____my____country____ (Consider _ as space)
+Output:
+4
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,j,count=0;
+    printf("enter the string: ");
+    fgets(str,sizeof(str),stdin);
+    
+    
+    
+//     logic to remove extra spaces
+    
+    for(j=0;str[j]!='\0';j++)
+    {
+        if(str[j]==32 && str[j+1]==32)
+        {
+            for(i=j;str[i]!='\0';i++)
+            {
+                str[i]=str[i+1];
+            }
+            
+        }
+        if(str[j]==32 && str[j-1]==32 && j!=0)
+        {
+            j-=2;
+            
+        }   
+    }
+    if(str[0]==32)
+    {
+        for(j=0;str[j]!='\0';j++)
+        {
+            str[j]=str[j+1];
+        }
+    }
+    if(str[0]==32)
+    {
+        
+    }
+    else
+    {
+        for(j=0;str[j]!='\0';j++);
+        if(str[j-1]==10 && str[j-2]==32)
+        {
+            j--;
+            str[j-1]=str[j];
+            str[j]=str[j+1];
+        }
+        if(str[j-1]==32&& str[j]=='\0')
+        {
+            str[j-1]=str[j];
+        }
+    }
+    
+// logic to count words in sentence
+
+
+    for(j=0;str[j]!='\0';j++)
+    {
+        if(str[j]==32)
+        {
+            count++;
+        }
+    }
+    printf("the total no. of words is a sentence are: %d\n",count+1);
+}
+   
+
+
+
+ 
+/*
+Title- Write a C program to replace Good names in mail.
+Eg:
+Raw String:
+Hello GoodName
+Input String:
+India
+Output String:
+Hello India
+Input String:
+Sangamner
+Output String:
+Hello Sangamner
+Input String:
+technOrbit
+Output String:
+Hello technOrbit
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+#include<stdio.h>
+void main()
+{
+    char raw_str[100]="Hello GoodName",str[93];
+    int i=6,j;
+    printf("Enter your goodname: ");
+    fgets(str,100,stdin);
+    for(j=0;str[j]!='\0';j++,i++)
+    {
+      raw_str[i]=str[j];  
+    }
+    raw_str[i]='\0';
+    printf("%s\n",raw_str);
+}
+ 
+
+
+
+
+/*
+Title- Write a C program to print all fibonacci series upto each ASCII code of aphabates in given string.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,j,k,x;
+    printf("enter the string: ");
+    fgets(str,100,stdin);
+    for(k=0;str[k]!='\0';k++)
+    {
+        if((str[k]>=65 && str[k]<=90) || (str[k]>=97 && str[k]<=122))
+        {
+            j=1;
+            i=0;
+            printf("%d=[",str[k]);
+            while(i<=str[k])
+            {
+                printf("%d, ",i);
+                x=i;
+                i=i+j;
+                j=x;
+                
+ 
+            }
+            printf("]\n");
+        }
+    }
+    
+}
+
+
+
+
+
+/*
+Title- Write a C program which accepts a string from user which contains a characters from ‘b’ to ‘y’.
+Eg:
+Input String: mn jn kn kazfd
+Output String: mn jn kn k
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("Enter the string: ");
+    fgets(str,100,stdin);
+    for(i=0;str[i]!='\0';i++)
+    {
+       if(str[i]=='a' || str[i]=='z')
+       {
+           str[i]='\0';
+           break;
+       }
+    }
+    printf("output string: %s\n",str);
+}
+
+
+
+
+
+/*
+Title- Write a C program which accept sentence from user and print number of small letters, capital
+letters, Spaces and digits from that sentence.
+Eg:
+Input String:
+abcDE 5Glm1 O
+Output String:
+Small: 5
+Capital: 4 Digits: 2
+Spaces: 2.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,small=0,capital=0,digits=0,spaces=0;
+    printf("Enter the string: ");
+    fgets(str,100,stdin);
+    for(i=0;str[i]!='\0';i++)
+    {
+       if(str[i]>=65 && str[i]<=90)
+       {
+           capital++;
+       }
+       else
+       {
+           if(str[i]>=97 && str[i]<=122)
+           {
+               small++;
+           }
+           else
+           {
+               if(str[i]>=48 && str[i]<=57)
+               {
+                   digits++;
+               }
+               else
+               {
+                   if(str[i]==32)
+                   {
+                       spaces++;
+                   }
+               }
+           }
+       }
+    }
+    printf("small= %d\ncapital=%d\ndigits=%d\nspaces=%d\n",small,capital,digits,spaces);
+}
+ 
+
+
+
+
+/*
+Title- Write a C program which accept sentence from user and print number of white spaces from that
+sentence.
+Eg:
+Input String:
+India is my country
+Output:
+3
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,count=0;
+    printf("Enter the string: ");
+    fgets(str,100,stdin);
+    for(i=0;str[i]!=0;i++)
+    {
+        if(str[i]==32)
+        {
+            count++;
+        }
+    }
+    printf("no. of white spaces are: %d\n",count);
+}
+  
+
+
+
+
+
+/*
+Title- Write a C program which accept sentence from user and print number of words of even and odd
+length from that sentence.
+Eg:
+Input String:
+India is my country. I love my country.
+Output :
+Even: 5
+Odd: 2
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+ 
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,j,k,even=0,odd=0,count;
+    printf("enter the string: ");
+    fgets(str,sizeof(str),stdin);
+    
+//     removing multiple spaces
+    for(j=0;str[j]!='\0';j++)
+    {
+        if(str[j]==32 && str[j+1]==32)
+        {
+            for(i=j;str[i]!='\0';i++)
+            {
+                str[i]=str[i+1];
+            }
+            
+        }
+        if(str[j]==32 && str[j-1]==32 && j!=0)
+        {
+            j-=2;
+            
+        }   
+    }
+    
+    
+//    to remove all the spaces at start and end
+    if(str[0]==32)
+    {
+        for(j=0;str[j]!='\0';j++)
+        {
+            str[j]=str[j+1];
+        }
+    }
+    if(str[0]==32)
+    {
+        
+    }
+    else
+    {
+        for(j=0;str[j]!='\0';j++);
+        if(str[j-1]==10 && str[j-2]==32)
+        {
+            j--;
+            str[j-1]=str[j];
+            str[j]=str[j+1];
+        }
+        if(str[j-1]==32&& str[j]=='\0')
+        {
+            str[j-1]=str[j];
+        }
+    }
+    
+//     to  count the characters in a word
+
+    for(j=0;str[j]!='\0'; )
+    {
+        count=0;
+        for(i=j;str[i]!=32 && str[i]!='\0';i++);
+        i--;
+        if(str[i]==10)
+        {
+            i--;
+        }
+        k=i;
+        for( ;j<=i;j++)
+        {
+            count++;
+        }
+        j=k;
+        if(str[j+1]==32 || str[j+1]==10)
+        {
+            j+=2;
+        }
+        else
+        {
+            j++;
+        }
+//         to check the count is even or odd
+        if(count%2==0)
+        {
+            even++;
+        }
+        else
+        {
+            odd++;
+        }
+        
+    }
+    printf("even no. of words : %d\nOdd no. of words: %d\n",even,odd);
+}
+
+
+
+
+
+/*
+Title- Write a C program which accept sentence from user and print last word from that sentence.
+Eg:
+Input String:
+India is my country
+Output String:
+country
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("enter the string: ");
+    fgets(str,100,stdin);
+    for(i=0;str[i]!='\0';i++);
+    i--;
+    if(str[i]==10)
+    {
+        i--;
+    }
+    while(str[i]==32)
+    {
+        i--;
+    }
+    while(str[i]!=32 && i!=-1)
+    {
+        i--;
+    }
+    i++;
+    for(i;str[i]!='\0';i++)
+    {
+        printf("%c",str[i]);
+    }
+} 
+
+
+
+
+
+
+/*
+Title- Write a C program which accept sentence from user and position from user and print the word at
+that position.
+Eg:
+Input String:
+India is my country
+Input Position:
+3
+Output String:
+my
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+ 
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,j,count=0,n,flag=0;
+    printf("enter the string: ");
+    fgets(str,sizeof(str),stdin);
+    printf("enter the no. of word which you want to print from string: ");
+    scanf("%d",&n);
+    
+//     removing multiple spaces
+    for(j=0;str[j]!='\0';j++)
+    {
+        if(str[j]==32 && str[j+1]==32)
+        {
+            for(i=j;str[i]!='\0';i++)
+            {
+                str[i]=str[i+1];
+            }
+            
+        }
+        if(str[j]==32 && str[j-1]==32 && j!=0)
+        {
+            j-=2;
+            
+        }   
+    }
+    
+    
+//    to remove all the remaining spaces at start and end
+    if(str[0]==32)
+    {
+        for(j=0;str[j]!='\0';j++)
+        {
+            str[j]=str[j+1];
+        }
+    }
+    if(str[0]==32)
+    {
+        
+    }
+    else
+    {
+        for(j=0;str[j]!='\0';j++);
+        if(str[j-1]==10 && str[j-2]==32)
+        {
+            j--;
+            str[j-1]=str[j];
+            str[j]=str[j+1];
+        }
+        if(str[j-1]==32&& str[j]=='\0')
+        {
+            str[j-1]=str[j];
+        }
+    }
+    
+//     to  count the characters in a word
+
+    for(j=0;str[j]!='\0'; )
+    {
+        for(i=j;str[i]!=32 && str[i]!='\0';i++);
+        i--;
+        if(str[i]==10)
+        {
+            i--;
+        }
+        count++;
+        if(count==n)
+        {
+            printf("word is: ");
+            for( ;j<=i;j++)
+            {
+                printf("%c",str[j]);
+            }
+            printf("\n");
+            flag=1;
+            break;
+        }
+        j=i;
+        if(str[j+1]==32 || str[j+1]==10)
+        {
+            j+=2;
+        }
+        else
+        {
+            j++;
+        }
+        
+    }
+    if(flag==0)
+    {
+        printf("less words in the string\n");
+    } 
+}
+  
+
+
+
+
+  
+ 
+/*
+Title- Write a C program to convert the string from upper case to lower case.
+Eg:
+Input String:
+India Is My Country
+Output String:
+india is my country
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("enter the string: ");
+    fgets(str,100,stdin);
+    printf("String in lower case is: ");
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]>=65 && str[i]<=90)
+        {
+            printf("%c",str[i]+32);
+        }
+        else
+        {
+            printf("%c",str[i]);
+        }
+    }
+    
+}
+
+
+
+
+
+
+/*
+Title- Write a C program which toggles the case of a string.
+Eg:
+Input String:
+technOrbit Infosystems
+Output String:
+TECHNoRBIT iNFOSYSTEMS
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("enter the string: ");
+    fgets(str,100,stdin);
+    printf("Toggle String is: ");
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]>=65 && str[i]<=90)
+        {
+            printf("%c",str[i]+32);
+        }
+        else
+        {
+            if(str[i]>=97 && str[i]<=122)
+            {
+                printf("%c",str[i]-32);
+            }
+            else
+            {
+                printf("%c",str[i]);
+            }
+            
+        }
+    }
+    
+}
+ 
+
+
+
+
+
+
+/*
+Title- Write a C program to check whether given strings are Anagram strings or not.
+Eg:
+Input String1:
+abccd
+Input String2:cbcda
+Output String: Strings are anagram
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h>
+void main()
+{
+    char str1[100],str2[100],temp;
+    int i,j,flag=0;
+    printf("enter the 1st string: ");
+    fgets(str1,sizeof(str1),stdin);
+    printf("enter the 2nd string: ");
+    fgets(str2,sizeof(str2),stdin);
+//     sorting of string1
+    for(i=0;str1[i]!='\0';i++)
+    {
+        for(j=i+1;str1[j]!='\0';j++)
+        {
+            if(str1[i]>str1[j])
+            {
+                temp=str1[i];
+                str1[i]=str1[j];
+                str1[j]=temp;
+            }
+        }
+    }
+//     sorting string2
+    for(i=0;str2[i]!='\0';i++)
+    {
+        for(j=i+1;str2[j]!='\0';j++)
+        {
+            if(str2[i]>str2[j])
+            {
+                temp=str2[i];
+                str2[i]=str2[j];
+                str2[j]=temp;
+            }
+        }
+    }
+//     checking string are equals or not
+    for(i=0;str1[i]!='\0' || str2[i]!='\0';i++)
+    {
+        if(str1[i]!=str2[i])
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        printf("string is Anagram.\n");
+    }
+    else
+    {
+        printf("string is not Anagram.\n");
+    }
+}
+
+
+
+
+
+
+
+/*
+Title- Write a C program which accept string from user and copy that string into some another string.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+#include<stdio.h>
+void main()
+{
+    char str1[100],str2[100];
+    int i;
+    printf("enter the string: ");
+    fgets(str1,100,stdin);
+    for(i=0;str1[i]!='\0';i++)
+    {
+        str2[i]=str1[i];
+    }
+    str2[i]='\0';
+    printf("copied string is: %s",str2);
+    
+}
+ 
+
+
+
+
+
+
+
+/*
+Title- Write a program which accept string from user and copy first N charaters into some destination
+string.
+Eg:
+Input String:
+India is my country
+Input of N:
+8
+Output String:
+India is
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+#include<stdio.h> 
+void main()
+{
+    char str1[100],str2[100];
+    int i,n;
+    printf("enter the string: ");
+    fgets(str1,100,stdin);
+    printf("enter the number upto which you want a string: ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        str2[i]=str1[i];
+    }
+    str2[i]='\0';
+    printf("final string is: %s\n",str2);
+}
+
+
+
+
+
+
+
+
+/*
+Title- Write a C program which accept string from user and accept number N then copy last N character
+into some another string.
+Eg:
+Input String:
+India is my country
+Input of N:
+5
+Output String:
+is my
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h> 
+void main()
+{
+    char str1[100],str2[100];
+    int i,n,j=0;
+    printf("enter the string: ");
+    fgets(str1,100,stdin);
+    printf("enter the number: ");
+    scanf("%d",&n);
+    for(i=0;str1[i]!='\0';i++);
+    i--;
+    printf("%d\n",i);
+    for(i=i-n;str1[i]!='\0';i++,j++)
+    {
+        str2[j]=str1[i];
+    }
+    str2[j]='\0';
+    printf("final string is: %s\n",str2);
+} 
+
+
+
+
+
+
+/*
+Title- Write a C program which accept two strings from user and append second string after first string.
+Eg:
+Input String:
+India Country
+Output String:
+IndiaCountry
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h> 
+void main()
+{
+    char str1[200],str2[100];
+    int i,j;
+    printf("enter the string1: ");
+    fgets(str1,100,stdin);
+    printf("enter the string2: ");
+    fgets(str2,100,stdin);
+    for(i=0;str1[i]!='\0';i++);
+    i--;
+    if(str1[i]==10)
+    {
+        i--;
+    }
+    for(j=0;str2[j]!='\0';i++,j++)
+    {
+        str1[i]=str2[j];
+    }
+    str1[i]='\0';
+    printf("\nfinal string is: %s\n",str1);
+}  
+
+
+
+
+
+
+
+
+/*
+Title- Write a C program which accept two strings from user and append N characters of second string
+after first string.
+Eg:
+Input String:
+India Country
+Input of N:
+4
+Output String:
+IndiaCoun
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+#include<stdio.h> 
+void main()
+{
+    char str1[200],str2[100];
+    int i,j,n;
+    printf("enter the string1: ");
+    fgets(str1,100,stdin);
+    printf("enter the string2: ");
+    fgets(str2,100,stdin);
+    printf("enter how many characters of 2nd srting you want to add in 1st string: ");
+    scanf("%d",&n);
+    for(i=0;str1[i]!='\0';i++);
+    if(str1[i-1]==10)
+    {
+        i--;
+    }
+    for(j=0;j<n;i++,j++)
+    {
+        str1[i]=str2[j];
+    }
+    str1[i]='\0';
+    printf("\nfinal string is: %s\n",str1);
+}  
+
+
+
+
+
+
+/*
+Title- Write a C program which accept two strings from user and compare two strings. If both strings are
+equal then return 0 otherwise return difference between first mismatch character.
+Eg:
+Input String1:
+India is my country.
+Input String2:
+India is my country.
+Output:
+Both strings are equal.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<stdio.h> 
+void main()
+{
+    char str1[100],str2[100];
+    int i,j,flag=0;
+    printf("enter the string1: ");
+    fgets(str1,100,stdin);
+    printf("enter the string2: ");
+    fgets(str2,100,stdin);
+    for(i=0;str1[i]!='\0'|| str2[i]!='\0';i++)
+    {
+        if(str1[i]!=str2[i])
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        printf("0\n");
+    }
+    else
+    {
+        printf("difference is: \n str1[%d] = %c \n str2[%d] = %c\n",i,str1[i],i,str2[i]);
+    }
+}
+
+
+
+
+
+
+/*
+Title- Write a C program which accept two strings from user and compare only first N characters of two
+strings. If both strings are equal till first N characters then return 0 otherwise return difference
+between first mismatch character.
+Eg:
+Input String1:
+Ramayan
+Input String2:
+Ramanacharya
+Input of N:
+4
+Output:
+Both strings are equal.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+#include<stdio.h> 
+void main()
+{
+    char str1[100],str2[100];
+    int i,j,n,flag=0;
+    printf("enter the string1: ");
+    fgets(str1,100,stdin);
+    printf("enter the string2: ");
+    fgets(str2,100,stdin);
+    printf("enter upto how many characters you want to check strings: ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        if(str1[i]!=str2[i])
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        printf("0\n");
+    }
+    else
+    {
+        printf("difference is: \n str1[%d] = %c \n str2[%d] = %c\n",i,str1[i],i,str2[i]);
+    }
+}
+
+
+
+
+
+
+
+/*
+Title- Write a C program which accept two strings from user and compare two strings without case
+sensitivity. If both strings are equal then return 0 otherwise return difference between first mismatch
+character.
+Eg:
+Input String1:
+india Is mY cOuntry
+Input String2:
+INDIA is MY countrY
+Output:
+Both strings are equal.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h>
+void main()
+{
+    char str1[100],str2[100];
+    int i,flag=0;
+    printf("enter the string 1: ");
+    fgets(str1,100,stdin);
+    printf("enter the string2: ");
+    fgets(str2,100,stdin);
+    for(i=0;str1[i]!='\0' || str2[i]!='\0';i++)
+    {
+        if((str1[i]>=97 && str1[i]<=122) && (str2[i]>=65 && str2[i]<=90))
+        {
+            if((str1[i]-32)!=str2[i])
+            {
+                flag=1;
+                break;
+            }
+        }
+        else
+        {
+            if((str2[i]>=97 && str2[i]<=122) && (str1[i]>=65 && str1[i]<=90))
+            {
+                if(str1[i]!=(str2[i]-32))
+                {
+                    flag=1;
+                    break;
+                }
+            }
+            else
+            {
+               if(str1[i]!=str2[i])
+                {
+                    flag=1;
+                    break;
+                } 
+            }
+        }
+    }
+    if(flag==0)
+    {
+        printf("0\n");
+    }
+    else
+    {
+        printf("difference is: \nstr1[%d]=%c\nstr2[%d]=%c\n",i+1,str1[i],i+1,str2[i]);
+    }
+}
+
+
+
+
+
+
+
+/*
+Title- Write a C program which accept string from user and then reverse the string till first N characters
+without taking another string.
+Eg:
+Input String:
+India is my country
+Input of N:
+8
+Output :
+m si aidnIy country
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100],temp;
+    int i,n,count;
+    printf("enter the string: ");
+    fgets(str,100,stdin);
+    printf("enter the number: ");
+    scanf("%d",&n);
+    
+    
+// to count n characters in string
+    for(i=0;count<n;i++)
+    {
+        if(str[i]!=32)
+        {
+            count++;
+        }
+    }
+    printf("%d\n",i);
+    i--;
+// to reverse string upto count
+    for(count=0;count<=i;count++,i--)
+    {
+        temp=str[i];
+        str[i]=str[count];
+        str[count]=temp;
+    }
+        
+    printf("final string is: %s",str);
+    
+}
+
+
+
+
+
+
+
+/*
+Title- Write a C program which accept string from user and then accept range and reverse the string in
+that range without taking another string.
+Eg:
+Input String:
+India is my country
+Input of N1:
+3
+Input of N1:
+9
+Output String:
+Indm si aicountry
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100],temp;
+    int i,j,m,n,count=0;
+    printf("enter the string: ");
+    fgets(str,100,stdin);
+    printf("enter the starting range: ");
+    scanf("%d",&m);
+     printf("enter the ending range: ");
+    scanf("%d",&n);
+    if(m<n)
+    {
+        for(i=0;count<m;i++)
+        {
+            if(str[i]!=32)
+            {
+                count++;
+            }
+        }
+        printf("%d\n",i);
+        i--;
+        count=0;
+        for(j=0;count<n;j++)
+        {
+            if(str[j]!=32)
+            {
+                count++;
+            }
+        }
+        printf("%d\n",j);
+        j--;
+        for(i;i<=j;i++,j--)
+        {
+            temp=str[i];
+            str[i]=str[j];
+            str[j]=temp;
+        }
+        printf("final string is: %s\n",str);
+    }
+    else
+    {
+        printf("enter the proper range.\n");
+    }
+    
+}
+ 
+
+
+
+
+
+/*
+Title- Write a C program which accept string from user and reverse words from that string which are of
+even length.
+Eg:
+Input String:
+India is my country. I love my country.
+Output String:
+India si ym .yrtnuoc I evol ym . Yrtnuoc
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100],temp;
+    int i,j,k,count,x;
+    printf("Enter the string: ");
+    fgets(str,sizeof(str),stdin);
+    
+//     to  count the characters in a word
+
+    for(j=0;str[j]!='\0'; )
+    {
+        count=0;
+        for(i=j;str[i]!=32 && str[i]!='\0';i++);
+        i--;
+        if(str[i]==10)
+        {
+            i--;
+        }
+        k=i;
+        x=j;
+        for( ;j<=i;j++)
+        {
+            count++;
+        }
+        j=x;
+//         to check the count is even or not
+        if(count%2==0)
+        {
+    //     logic for swapping each word at its place 
+           for( ;j<=i;j++,i--)
+                {
+                    temp=str[j];
+                    str[j]=str[i];
+                    str[i]=temp;
+                }
+        }
+        j=k;
+        if(str[j+1]==32 || str[j+1]==10)
+        {
+            j+=2;
+        }
+        else
+        {
+            j++;
+        }
+        
+    }
+    printf("final output is: %s\n",str);
+    
+}
+
+
+
+
+
+
+
+
+/*
+Title-Write a C program which accept string from user and check whether string is palindrome or not.
+Eg:
+Input String:
+level
+Output String:
+String is palindrome.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i=0,j,flag=0;
+    printf("enter the string: ");
+    fgets(str,100,stdin);
+    while(str[i]!='\0')
+    {
+        i++;
+    }
+    i--;
+    if(str[i]==10)
+    {
+        i--;
+    }
+    for(j=0;j<=i;j++,i--)
+    {
+        if(str[j]!=str[i])
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        printf("string is palindrome\n");
+    }
+    else
+    {
+        printf("string is not palindrome\n");
+    }
+    
+}
+
+
+
+
+
+
+
+/*
+Title- Write a C program to count number of alphabates, spaces and words in given string.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int j,i,space=0,alpha=0,count=0;
+    printf("enter the string: ");
+    fgets(str,sizeof(str),stdin);
+//     logic to count spaces and alphabets
+    for(j=0;str[j]!='\0';j++)
+    {
+        if(str[j]==32)
+        {
+            space++;
+        }
+        else
+        {
+            if((str[j]>=65 && str[j]<=90) || (str[j]>=97 && str[j]<=122))
+            {
+                alpha++;
+            }
+        }
+    }
+    //     logic to remove extra spaces
+    
+    for(j=0;str[j]!='\0';j++)
+    {
+        if(str[j]==32 && str[j+1]==32)
+        {
+            for(i=j;str[i]!='\0';i++)
+            {
+                str[i]=str[i+1];
+            }
+            
+        }
+        if(str[j]==32 && str[j-1]==32 && j!=0)
+        {
+            j-=2;
+            
+        }   
+    }
+    if(str[0]==32)
+    {
+        for(j=0;str[j]!='\0';j++)
+        {
+            str[j]=str[j+1];
+        }
+    }
+    if(str[0]==32)
+    {
+        
+    }
+    else
+    {
+        for(j=0;str[j]!='\0';j++);
+        if(str[j-1]==10 && str[j-2]==32)
+        {
+            j--;
+            str[j-1]=str[j];
+            str[j]=str[j+1];
+        }
+        if(str[j-1]==32&& str[j]=='\0')
+        {
+            str[j-1]=str[j];
+        }
+    }
+    
+// logic to count words in sentence
+
+
+    for(j=0;str[j]!='\0';j++)
+    {
+        if(str[j]==32)
+        {
+            count++;
+        }
+    }
+    count+=1;
+    printf("spaces= %d\nalphabets= %d\nwords= %d\n",space,alpha,count);
+}
+
