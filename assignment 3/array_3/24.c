@@ -18,9 +18,9 @@ void main()
     char str1[200],str2[100];
     int i,j,n;
     printf("enter the string1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str2),stdin);
     printf("enter how many characters of 2nd srting you want to add in 1st string: ");
     scanf("%d",&n);
     for(i=0;str1[i]!='\0';i++);

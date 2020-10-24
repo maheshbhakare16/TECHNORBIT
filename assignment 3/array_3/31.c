@@ -16,7 +16,7 @@ void main()
     char str[100];
     int i=0,j,flag=0;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     while(str[i]!='\0')
     {
         i++;

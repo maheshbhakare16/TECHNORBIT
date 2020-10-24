@@ -25,7 +25,7 @@ void main()
     char raw_str[100]="Hello GoodName",str[93];
     int i=6,j;
     printf("Enter your goodname: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(j=0;str[j]!='\0';j++,i++)
     {
       raw_str[i]=str[j];  

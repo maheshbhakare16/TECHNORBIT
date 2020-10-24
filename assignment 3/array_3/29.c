@@ -22,7 +22,7 @@ void main()
     char str[100],temp;
     int i,j,m,n,count=0;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("enter the starting range: ");
     scanf("%d",&m);
      printf("enter the ending range: ");

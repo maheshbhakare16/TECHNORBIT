@@ -17,9 +17,9 @@ void main()
     char str1[200],str2[100];
     int i,j;
     printf("enter the string1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str1),stdin);
     for(i=0;str1[i]!='\0';i++);
     i--;
     if(str1[i]==10)

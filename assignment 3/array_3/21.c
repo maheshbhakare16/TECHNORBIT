@@ -18,7 +18,7 @@ void main()
     char str1[100],str2[100];
     int i,n;
     printf("enter the string: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the number upto which you want a string: ");
     scanf("%d",&n);
     for(i=0;i<n;i++)

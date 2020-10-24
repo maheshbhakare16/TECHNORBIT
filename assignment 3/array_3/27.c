@@ -21,9 +21,9 @@ void main()
     char str1[100],str2[100];
     int i,flag=0;
     printf("enter the string 1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str2),stdin);
     for(i=0;str1[i]!='\0' || str2[i]!='\0';i++)
     {
         if((str1[i]>=97 && str1[i]<=122) && (str2[i]>=65 && str2[i]<=90))

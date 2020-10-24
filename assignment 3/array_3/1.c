@@ -13,6 +13,6 @@ void main()
 {
     char str[100];
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("Accepted string is: %s\n",str);
 }

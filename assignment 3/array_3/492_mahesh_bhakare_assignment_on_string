@@ -6,16 +6,15 @@ Author- Bhakare Mahesh Santosh
 ID- 492
 Batch- TechnOrbit(PPA-8)
 */
-
-
 #include<stdio.h>
 void main()
 {
     char str[100];
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("Accepted string is: %s\n",str);
 }
+
 
 
 
@@ -94,6 +93,8 @@ void main()
 
 
 
+
+
 /*
 Title- Write a C program to print count of number characters in given string.
 Author- Bhakare Mahesh Santosh
@@ -106,7 +107,7 @@ void main()
     char str[100];
     int i,count=0;
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(i=0;str[i]!='\0';i++)
     {
         if(str[i]>=48 && str[i]<=57)
@@ -120,7 +121,10 @@ void main()
 
 
 
- 
+
+
+
+
 /*
 Title- Write a C program to accept string and print it in the reverse order.
 Eg:
@@ -139,7 +143,7 @@ void main()
     char str[100];
     int i;
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(i=0;str[i]!='\0';i++);
     i--;
     if(str[i]==10)
@@ -153,6 +157,9 @@ void main()
     }
     printf("\n");
 }
+
+
+
 
 
 
@@ -172,7 +179,7 @@ void main()
     char str[100];
     int i,vovels=0,consonants=0;
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(i=0;str[i]!=0;i++)
     {
         if(str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u' || str[i]=='A' || str[i]=='E' || str[i]=='I' || str[i]=='O' || str[i]=='U')
@@ -188,6 +195,9 @@ void main()
     printf("No. of Vovels are: %d\nNo. of Consonants are: %d\n",vovels,consonants);
     
 }
+
+
+
 
 
 
@@ -256,6 +266,8 @@ void main()
 
 
 
+
+
 /*
 Title- Write a C program to replace space with ‘$’ in given string.
 Eg:
@@ -273,7 +285,7 @@ void main()
     char str[100];
     int i;
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(i=0;str[i]!='\0';i++)
     {
         if(str[i]==32)
@@ -369,11 +381,14 @@ void main()
     }
     printf("the total no. of words is a sentence are: %d\n",count+1);
 }
-   
+  
 
 
 
- 
+
+
+
+  
 /*
 Title- Write a C program to replace Good names in mail.
 Eg:
@@ -401,7 +416,7 @@ void main()
     char raw_str[100]="Hello GoodName",str[93];
     int i=6,j;
     printf("Enter your goodname: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(j=0;str[j]!='\0';j++,i++)
     {
       raw_str[i]=str[j];  
@@ -409,11 +424,14 @@ void main()
     raw_str[i]='\0';
     printf("%s\n",raw_str);
 }
+
+
+
+
+
+
+
  
-
-
-
-
 /*
 Title- Write a C program to print all fibonacci series upto each ASCII code of aphabates in given string.
 Author- Bhakare Mahesh Santosh
@@ -427,7 +445,7 @@ void main()
     char str[100];
     int i,j,k,x;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(k=0;str[k]!='\0';k++)
     {
         if((str[k]>=65 && str[k]<=90) || (str[k]>=97 && str[k]<=122))
@@ -454,6 +472,8 @@ void main()
 
 
 
+
+
 /*
 Title- Write a C program which accepts a string from user which contains a characters from ‘b’ to ‘y’.
 Eg:
@@ -470,7 +490,7 @@ void main()
     char str[100];
     int i;
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(i=0;str[i]!='\0';i++)
     {
        if(str[i]=='a' || str[i]=='z')
@@ -481,6 +501,9 @@ void main()
     }
     printf("output string: %s\n",str);
 }
+
+
+
 
 
 
@@ -509,7 +532,7 @@ void main()
     char str[100];
     int i,small=0,capital=0,digits=0,spaces=0;
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(i=0;str[i]!='\0';i++)
     {
        if(str[i]>=65 && str[i]<=90)
@@ -540,11 +563,15 @@ void main()
     }
     printf("small= %d\ncapital=%d\ndigits=%d\nspaces=%d\n",small,capital,digits,spaces);
 }
+
+
+
+
+
+
+
+
  
-
-
-
-
 /*
 Title- Write a C program which accept sentence from user and print number of white spaces from that
 sentence.
@@ -565,7 +592,7 @@ void main()
     char str[100];
     int i,count=0;
     printf("Enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(i=0;str[i]!=0;i++)
     {
         if(str[i]==32)
@@ -576,6 +603,8 @@ void main()
     printf("no. of white spaces are: %d\n",count);
 }
   
+
+
 
 
 
@@ -694,6 +723,9 @@ void main()
 
 
 
+
+
+
 /*
 Title- Write a C program which accept sentence from user and print last word from that sentence.
 Eg:
@@ -714,7 +746,7 @@ void main()
     char str[100];
     int i;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(i=0;str[i]!='\0';i++);
     i--;
     if(str[i]==10)
@@ -735,6 +767,8 @@ void main()
         printf("%c",str[i]);
     }
 } 
+
+
 
 
 
@@ -857,6 +891,8 @@ void main()
 
 
 
+
+
   
  
 /*
@@ -877,7 +913,7 @@ void main()
     char str[100];
     int i;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("String in lower case is: ");
     for(i=0;str[i]!='\0';i++)
     {
@@ -892,6 +928,8 @@ void main()
     }
     
 }
+
+
 
 
 
@@ -916,7 +954,7 @@ void main()
     char str[100];
     int i;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("Toggle String is: ");
     for(i=0;str[i]!='\0';i++)
     {
@@ -940,6 +978,7 @@ void main()
     
 }
  
+
 
 
 
@@ -1019,6 +1058,7 @@ void main()
 
 
 
+
 /*
 Title- Write a C program which accept string from user and copy that string into some another string.
 Author- Bhakare Mahesh Santosh
@@ -1031,7 +1071,7 @@ void main()
     char str1[100],str2[100];
     int i;
     printf("enter the string: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     for(i=0;str1[i]!='\0';i++)
     {
         str2[i]=str1[i];
@@ -1040,14 +1080,16 @@ void main()
     printf("copied string is: %s",str2);
     
 }
+
+
+
+
+
+
+
+
+
  
-
-
-
-
-
-
-
 /*
 Title- Write a program which accept string from user and copy first N charaters into some destination
 string.
@@ -1068,7 +1110,7 @@ void main()
     char str1[100],str2[100];
     int i,n;
     printf("enter the string: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the number upto which you want a string: ");
     scanf("%d",&n);
     for(i=0;i<n;i++)
@@ -1078,6 +1120,7 @@ void main()
     str2[i]='\0';
     printf("final string is: %s\n",str2);
 }
+
 
 
 
@@ -1108,7 +1151,7 @@ void main()
     char str1[100],str2[100];
     int i,n,j=0;
     printf("enter the string: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the number: ");
     scanf("%d",&n);
     for(i=0;str1[i]!='\0';i++);
@@ -1121,6 +1164,10 @@ void main()
     str2[j]='\0';
     printf("final string is: %s\n",str2);
 } 
+
+
+
+
 
 
 
@@ -1146,9 +1193,9 @@ void main()
     char str1[200],str2[100];
     int i,j;
     printf("enter the string1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str1),stdin);
     for(i=0;str1[i]!='\0';i++);
     i--;
     if(str1[i]==10)
@@ -1161,7 +1208,7 @@ void main()
     }
     str1[i]='\0';
     printf("\nfinal string is: %s\n",str1);
-}  
+} 
 
 
 
@@ -1170,6 +1217,10 @@ void main()
 
 
 
+
+
+
+ 
 /*
 Title- Write a C program which accept two strings from user and append N characters of second string
 after first string.
@@ -1190,9 +1241,9 @@ void main()
     char str1[200],str2[100];
     int i,j,n;
     printf("enter the string1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str2),stdin);
     printf("enter how many characters of 2nd srting you want to add in 1st string: ");
     scanf("%d",&n);
     for(i=0;str1[i]!='\0';i++);
@@ -1206,13 +1257,18 @@ void main()
     }
     str1[i]='\0';
     printf("\nfinal string is: %s\n",str1);
-}  
+} 
 
 
 
 
 
 
+
+
+
+
+ 
 /*
 Title- Write a C program which accept two strings from user and compare two strings. If both strings are
 equal then return 0 otherwise return difference between first mismatch character.
@@ -1234,9 +1290,9 @@ void main()
     char str1[100],str2[100];
     int i,j,flag=0;
     printf("enter the string1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str2),stdin);
     for(i=0;str1[i]!='\0'|| str2[i]!='\0';i++)
     {
         if(str1[i]!=str2[i])
@@ -1254,6 +1310,9 @@ void main()
         printf("difference is: \n str1[%d] = %c \n str2[%d] = %c\n",i,str1[i],i,str2[i]);
     }
 }
+
+
+
 
 
 
@@ -1283,9 +1342,9 @@ void main()
     char str1[100],str2[100];
     int i,j,n,flag=0;
     printf("enter the string1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str2),stdin);
     printf("enter upto how many characters you want to check strings: ");
     scanf("%d",&n);
     for(i=0;i<n;i++)
@@ -1305,6 +1364,9 @@ void main()
         printf("difference is: \n str1[%d] = %c \n str2[%d] = %c\n",i,str1[i],i,str2[i]);
     }
 }
+
+
+
 
 
 
@@ -1335,9 +1397,9 @@ void main()
     char str1[100],str2[100];
     int i,flag=0;
     printf("enter the string 1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str2),stdin);
     for(i=0;str1[i]!='\0' || str2[i]!='\0';i++)
     {
         if((str1[i]>=97 && str1[i]<=122) && (str2[i]>=65 && str2[i]<=90))
@@ -1384,6 +1446,11 @@ void main()
 
 
 
+
+
+
+
+
 /*
 Title- Write a C program which accept string from user and then reverse the string till first N characters
 without taking another string.
@@ -1406,7 +1473,7 @@ void main()
     char str[100],temp;
     int i,n,count;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("enter the number: ");
     scanf("%d",&n);
     
@@ -1439,6 +1506,10 @@ void main()
 
 
 
+
+
+
+
 /*
 Title- Write a C program which accept string from user and then accept range and reverse the string in
 that range without taking another string.
@@ -1463,7 +1534,7 @@ void main()
     char str[100],temp;
     int i,j,m,n,count=0;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("enter the starting range: ");
     scanf("%d",&m);
      printf("enter the ending range: ");
@@ -1503,12 +1574,16 @@ void main()
     }
     
 }
+
+
+
+
+
+
+
+
+
  
-
-
-
-
-
 /*
 Title- Write a C program which accept string from user and reverse words from that string which are of
 even length.
@@ -1583,6 +1658,9 @@ void main()
 
 
 
+
+
+
 /*
 Title-Write a C program which accept string from user and check whether string is palindrome or not.
 Eg:
@@ -1601,7 +1679,7 @@ void main()
     char str[100];
     int i=0,j,flag=0;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     while(str[i]!='\0')
     {
         i++;
@@ -1629,6 +1707,12 @@ void main()
     }
     
 }
+
+
+
+
+
+
 
 
 
@@ -1723,4 +1807,4 @@ void main()
     count+=1;
     printf("spaces= %d\nalphabets= %d\nwords= %d\n",space,alpha,count);
 }
-
+ 

@@ -11,7 +11,7 @@ void main()
     char str[100];
     int i,j,k,x;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     for(k=0;str[k]!='\0';k++)
     {
         if((str[k]>=65 && str[k]<=90) || (str[k]>=97 && str[k]<=122))

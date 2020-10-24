@@ -20,7 +20,7 @@ void main()
     char str[100],temp;
     int i,n,count;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("enter the number: ");
     scanf("%d",&n);
     

@@ -16,7 +16,7 @@ void main()
     char str[100];
     int i;
     printf("enter the string: ");
-    fgets(str,100,stdin);
+    fgets(str,sizeof(str),stdin);
     printf("Toggle String is: ");
     for(i=0;str[i]!='\0';i++)
     {

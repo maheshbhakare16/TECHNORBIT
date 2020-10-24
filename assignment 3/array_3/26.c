@@ -21,9 +21,9 @@ void main()
     char str1[100],str2[100];
     int i,j,n,flag=0;
     printf("enter the string1: ");
-    fgets(str1,100,stdin);
+    fgets(str1,sizeof(str1),stdin);
     printf("enter the string2: ");
-    fgets(str2,100,stdin);
+    fgets(str2,sizeof(str2),stdin);
     printf("enter upto how many characters you want to check strings: ");
     scanf("%d",&n);
     for(i=0;i<n;i++)
