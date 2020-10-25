@@ -14,59 +14,36 @@ Batch- TechnOrbit(PPA-8)
 */
  
 
-
 #include<stdio.h>
 void main()
 {
     char str[100];
-    int i,j;
+    int i=0;
     printf("enter the string: ");
     fgets(str,sizeof(str),stdin);
-    
-//     removing multiple spaces
-    for(j=0;str[j]!='\0';j++)
+    i=0;
+    printf("string with removed spaces is: ");
+    while(str[i]!='\0')
     {
-        if(str[j]==32 && str[j+1]==32)
+        if(str[i]==32)
         {
-            for(i=j;str[i]!='\0';i++)
-            {
-                str[i]=str[i+1];
-            }
-            
+            i++;
+            continue;
         }
-        if(str[j]==32 && str[j-1]==32 && j!=0)
+        else
         {
-            j-=2;
-            
-        }   
-    }
-    
-    
-//    to remove all the spaces at start and end
-    if(str[0]==32)
-    {
-        for(j=0;str[j]!='\0';j++)
-        {
-            str[j]=str[j+1];
+            break;
         }
     }
-    if(str[0]==32)
+    while(str[i]!='\0')
     {
-        
-    }
-    else
-    {
-        for(j=0;str[j]!='\0';j++);
-        if(str[j-1]==10 && str[j-2]==32)
+        if(str[i]==32 && str[i+1]==32 || str[i]==32 && str[i+1]==10 || str[i]==32 && str[i+1]=='\0' )
         {
-            j--;
-            str[j-1]=str[j];
-            str[j]=str[j+1];
+            i++;
+            continue;
         }
-        if(str[j-1]==32&& str[j]=='\0')
-        {
-            str[j-1]=str[j];
-        }
+        printf("%c",str[i]);
+        i++;
     }
-    printf("%s\n",str);
+    printf("\n");
 }

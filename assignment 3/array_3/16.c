@@ -14,100 +14,67 @@ Batch- TechnOrbit(PPA-8)
 */
  
 
-
 #include<stdio.h>
 void main()
 {
     char str[100];
-    int i,j,count=0,n,flag=0;
+    int i,j,word=0,flag=0,n;
     printf("enter the string: ");
     fgets(str,sizeof(str),stdin);
     printf("enter the no. of word which you want to print from string: ");
     scanf("%d",&n);
     
-//     removing multiple spaces
-    for(j=0;str[j]!='\0';j++)
+    l1:
+    while(str[i]!='\0')
     {
-        if(str[j]==32 && str[j+1]==32)
+        if(str[i]==32)
         {
-            for(i=j;str[i]!='\0';i++)
-            {
-                str[i]=str[i+1];
-            }
-            
-        }
-        if(str[j]==32 && str[j-1]==32 && j!=0)
-        {
-            j-=2;
-            
-        }   
-    }
-    
-    
-//    to remove all the remaining spaces at start and end
-    if(str[0]==32)
-    {
-        for(j=0;str[j]!='\0';j++)
-        {
-            str[j]=str[j+1];
-        }
-    }
-    if(str[0]==32)
-    {
-        
-    }
-    else
-    {
-        for(j=0;str[j]!='\0';j++);
-        if(str[j-1]==10 && str[j-2]==32)
-        {
-            j--;
-            str[j-1]=str[j];
-            str[j]=str[j+1];
-        }
-        if(str[j-1]==32&& str[j]=='\0')
-        {
-            str[j-1]=str[j];
-        }
-    }
-    
-//     to  count the characters in a word
-
-    for(j=0;str[j]!='\0'; )
-    {
-        for(i=j;str[i]!=32 && str[i]!='\0';i++);
-        i--;
-        if(str[i]==10)
-        {
-            i--;
-        }
-        count++;
-        if(count==n)
-        {
-            printf("word is: ");
-            for( ;j<=i;j++)
-            {
-                printf("%c",str[j]);
-            }
-            printf("\n");
-            flag=1;
-            break;
-        }
-        j=i;
-        if(str[j+1]==32 || str[j+1]==10)
-        {
-            j+=2;
+            i++;
+            continue;
         }
         else
         {
-            j++;
+            word++;
+            break;
         }
-        
     }
+    if(word==n)
+    {
+        printf("The word at %d position is: ",n);
+        flag=1;
+        while(str[i]!=32 && str[i]!=10&& str[i]!=0)
+        {
+            printf("%c",str[i]);
+            i++;
+        }
+        goto l2;
+    }
+    while(str[i]!='\0')
+    {
+        if(str[i]!=32 && str[i]!='\n' && str[i]!='\0')
+        {
+            i++;
+            continue;
+        }
+        else
+        {
+            if(str[i]=='\n' || str[i]=='\0')
+            {
+                break;
+            }
+            else
+            {
+                goto l1;
+            }
+        }
+    }
+    l2:
     if(flag==0)
     {
-        printf("less words in the string\n");
-    } 
+        printf("not enough words in sentence.");
+    }
+    printf("\n");
 }
     
+ 
  

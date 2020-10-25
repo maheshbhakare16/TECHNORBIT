@@ -1,34 +1,27 @@
 /*
-Title- Write a C program to count number of alphabates, spaces and words in given string.
+Title- Write a program which accept sentence from user and print number of words from that sentence.
+Input String:
+India_is_my_country
+Output:
+4
+Input String:
+______India______is____my____country____ (Consider _ as space)
+Output:
+4
 Author- Bhakare Mahesh Santosh
 ID- 492
 Batch- TechnOrbit(PPA-8)
 */
-
-
 #include<stdio.h>
 void main()
 {
     char str[100];
-    int j,i,space=0,alpha=0,word=0;
+    int i,j,word=0,flag=0,n;
     printf("enter the string: ");
     fgets(str,sizeof(str),stdin);
-//     logic to count spaces and alphabets
-    for(j=0;str[j]!='\0';j++)
-    {
-        if(str[j]==32)
-        {
-            space++;
-        }
-        else
-        {
-            if((str[j]>=65 && str[j]<=90) || (str[j]>=97 && str[j]<=122))
-            {
-                alpha++;
-            }
-        }
-    }
-    i=0;
+    printf("enter the no. of word which you want to print from string: ");
+    scanf("%d",&n);
+    
     l1:
     while(str[i]!='\0')
     {
@@ -42,6 +35,17 @@ void main()
             word++;
             break;
         }
+    }
+    if(word==n)
+    {
+        printf("The word at %d position is: ",n);
+        flag=1;
+        while(str[i]!=32 && str[i]!=10&& str[i]!=0)
+        {
+            printf("%c",str[i]);
+            i++;
+        }
+        goto l2;
     }
     while(str[i]!='\0')
     {
@@ -62,5 +66,13 @@ void main()
             }
         }
     }
-    printf("spaces = %d\nAlphabets = %d\nwords = %d\n",space,alpha,word);
+    l2:
+    if(flag==0)
+    {
+        printf("not enough words in sentence.");
+    }
+    printf("\n");
 }
+    
+ 
+ 

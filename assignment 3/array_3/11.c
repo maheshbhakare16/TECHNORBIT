@@ -15,13 +15,13 @@ void main()
     int i;
     printf("Enter the string: ");
     fgets(str,sizeof(str),stdin);
+    printf("output string: ");
     for(i=0;str[i]!='\0';i++)
     {
-       if(str[i]=='a' || str[i]=='z')
+       if(str[i]>97 && str[i]<122 || str[i]==32)
        {
-           str[i]='\0';
-           break;
+           printf("%c",str[i]);
        }
-    }
-    printf("output string: %s\n",str);
+    } 
+    printf("\n");
 }
