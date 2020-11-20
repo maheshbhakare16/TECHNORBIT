@@ -1,26 +1,36 @@
- 
 /*
-Title- 1. Write a C program to to represent 1-D array using Dynamic Memory Allocation.
+Title- 20. Write a C program to sort array in descending order using Dynamic memory allocation.
 Author- Bhakare Mahesh Santosh
 ID- 492
 Batch- TechnOrbit(PPA-8)
 */
-
 #include<stdio.h>
 #include<stdlib.h>
 void main()
 {
-    int n,i;
+    int n,i,j,temp;
     int* arr=NULL;
     printf("Enter how many elements do you want to enter into the array: ");
     scanf("%d",&n);
     arr=(int*)malloc(n*sizeof(int));
-    printf("enter elements into the array: \n");
+    printf("enter array elements to sort: \n");
     for(i=0;i<n;i++)
     {
         scanf("%d",arr+i);
     }
-    printf("Entered array elements are: [");
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(*(arr+j)>=*(arr+i))
+            {
+                temp=*(arr+j);
+                *(arr+j)=*(arr+i);
+                *(arr+i)=temp;
+            }
+        }
+    }
+    printf("Sorted array elements are: [");
     for(i=0;i<n;i++)
     {
         printf("%d, ",*(arr+i));
@@ -28,6 +38,5 @@ void main()
     printf("]\n");
     free(arr);
     arr=NULL;
-    
     
 }

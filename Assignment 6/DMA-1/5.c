@@ -1,6 +1,5 @@
- 
 /*
-Title- 1. Write a C program to to represent 1-D array using Dynamic Memory Allocation.
+Title- 5. Write a C program to reverse an given 1-D without using sorting algorithms. (Use Dynamic Memory Allocation to represent an array).
 Author- Bhakare Mahesh Santosh
 ID- 492
 Batch- TechnOrbit(PPA-8)
@@ -10,7 +9,7 @@ Batch- TechnOrbit(PPA-8)
 #include<stdlib.h>
 void main()
 {
-    int n,i;
+    int n,i,j,temp;
     int* arr=NULL;
     printf("Enter how many elements do you want to enter into the array: ");
     scanf("%d",&n);
@@ -20,7 +19,15 @@ void main()
     {
         scanf("%d",arr+i);
     }
-    printf("Entered array elements are: [");
+    j=n-1;
+    for(i=0;i<=j;i++,j--)
+    {
+        temp=*(arr+i);
+        *(arr+i)=*(arr+j);
+        *(arr+j)=temp;
+    }
+    
+    printf("reversed array elements are: [");
     for(i=0;i<n;i++)
     {
         printf("%d, ",*(arr+i));
@@ -28,6 +35,5 @@ void main()
     printf("]\n");
     free(arr);
     arr=NULL;
-    
     
 }

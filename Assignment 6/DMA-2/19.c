@@ -1,6 +1,7 @@
  
 /*
-Title- 1. Write a C program to to represent 1-D array using Dynamic Memory Allocation.
+Title- 19. Write a C program to find all negative numbers from given array using Dynamic memory
+allocation.
 Author- Bhakare Mahesh Santosh
 ID- 492
 Batch- TechnOrbit(PPA-8)
@@ -20,14 +21,16 @@ void main()
     {
         scanf("%d",arr+i);
     }
-    printf("Entered array elements are: [");
+    printf("Negative array elements are: [");
     for(i=0;i<n;i++)
     {
-        printf("%d, ",*(arr+i));
+        if(*(arr+i)<0)
+        {
+            printf("%d, ",*(arr+i));
+        }
     }
     printf("]\n");
     free(arr);
     arr=NULL;
-    
     
 }

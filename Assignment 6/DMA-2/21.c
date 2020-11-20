@@ -1,6 +1,7 @@
  
 /*
-Title- 1. Write a C program to to represent 1-D array using Dynamic Memory Allocation.
+Title- 21. Write a C program to print all numbers from array which are divisible by 5 and 7 using
+Dynamic memory allocation.
 Author- Bhakare Mahesh Santosh
 ID- 492
 Batch- TechnOrbit(PPA-8)
@@ -20,14 +21,16 @@ void main()
     {
         scanf("%d",arr+i);
     }
-    printf("Entered array elements are: [");
+    printf("array elements which are divisible by 5 & 7 are: [");
     for(i=0;i<n;i++)
     {
-        printf("%d, ",*(arr+i));
+        if(*(arr+i)%5==0 || *(arr+i)%7==0)
+        {
+            printf("%d, ",*(arr+i));
+        }
     }
     printf("]\n");
     free(arr);
     arr=NULL;
-    
     
 }
