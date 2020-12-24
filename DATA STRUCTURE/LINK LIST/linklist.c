@@ -95,8 +95,8 @@ void InsertAtPosition(struct node** head)
     struct node* newnode = NULL;
     struct node* tempnode = *head;
     int pos,n,i;
-    printf("Enter the position where you want to add new node: ");
     n = CountNode(*head);
+    printf("Enter the position where you want to add new node: ");
     scanf("%d",&pos);
     if(pos == 1)
     {
@@ -110,9 +110,9 @@ void InsertAtPosition(struct node** head)
         }
         else 
         {
-            if(pos < 1 && pos > n+1)
+            if(pos < 1 || pos > n+1)
             {
-                printf("Enter valid position .....");
+                printf("Enter valid position .....\n");
                 InsertAtPosition(head);
             }
             else
@@ -132,8 +132,124 @@ void InsertAtPosition(struct node** head)
     }
 }
 
-
-
+ void DeleteAtFirst(struct node** head)
+{
+    if(*head == NULL)
+    {
+        printf("Linked List not created , Please create Linked list....\n");
+    }
+    else
+    {
+        struct node* tempnode = *head;
+        *head = (*head) -> next;
+        free(tempnode);
+        tempnode = NULL;
+    }
+}
+void DeleteAtLast1(struct node** head)
+{
+    struct node* tempnode = *head;
+    if(*head == NULL)
+    {
+        printf("Linked List not created, Please create Linked List....\n");
+    }
+    else
+    {
+        if((*head) -> next == NULL)
+        {
+            free(*head);
+            *head = NULL;
+        }
+        else
+        {
+            while((tempnode -> next) -> next != NULL)
+            {
+                tempnode = tempnode -> next;
+            }
+            free(tempnode -> next);
+            tempnode -> next = NULL;
+        }
+        
+    }
+}
+void DeleteAtLast2(struct node** head)
+{
+    struct node* tempnode1 = *head;
+    struct node* tempnode2 = *head;
+    if(*head == NULL)
+    {
+        printf("No liked List created, Please create Linked List....\n");
+    }
+    else
+    {
+        if((*head)->next == NULL)
+        {
+            free(*head);
+            *head = NULL;
+        }
+        else
+        {
+            if((*head)->next->next == NULL)
+            {
+                free((*head)->next);
+                (*head)->next = NULL;
+            }
+            else
+            {
+                while(tempnode2->next != NULL)
+                {
+                    tempnode1 = tempnode1->next;
+                    tempnode2 = tempnode1->next;
+                }
+                free(tempnode2);
+                tempnode1->next = NULL;
+            }
+        }
+    }
+}
+void DeleteAtPosition(struct node** head)
+{
+    struct node* tempnode1 = *head;
+    struct node* tempnode2 = NULL;
+    int n,pos,i;
+    n = CountNode(*head);
+    printf("Enter the position from where you want to delete node: ");
+    scanf("%d",&pos);
+    if(pos == 1)
+    {
+        DeleteAtFirst(head);
+    }
+    else
+    {
+        if(pos == n)
+        {
+            DeleteAtLast1(head);
+        }
+        else
+        {
+            if(pos < 1 || pos > n)
+            {
+                printf("Please Enter the Valid Position....\n");
+                DeleteAtPosition(head);
+            }
+            else
+            {
+                if(pos > 1 && pos < n)
+                {
+                    for(i=1;i<pos-1;i++)
+                    {
+                        tempnode1 = tempnode1 -> next;
+                    }
+                    tempnode2 = tempnode1 -> next;
+                    tempnode1 -> next = (tempnode1 -> next) -> next;
+                    free(tempnode2);
+                    tempnode2 = NULL;
+                    tempnode1 = NULL;
+                }
+            }
+        }
+    }
+}
 // ------------------------- MAIN FUNCTION ---------------------------------
 void main()
 {
@@ -142,7 +258,7 @@ void main()
     do
     {
         printf(" --------------------------------- ***************** ----------------------------\n\n");
-        printf("1) Create Link List\n2) Display Link List\n3) Insert At First\n4) Insert At Last\n5) Insert At Position\n0) Exit\nEnter your choice: ");
+        printf("1) Create Link List\n2) Display Link List\n3) Insert At First\n4) Insert At Last\n5) Insert At Position\n6) Delete At First\n7) Delete At Last1\n8) Delete At Last2\n9) Delete At Position\n0) Exit\nEnter your choice: ");
         scanf("%d",&choice);
         switch(choice)
         {
@@ -155,6 +271,14 @@ void main()
             case 4: InsertAtLast(&first);
                     break;
             case 5: InsertAtPosition(&first);
+                    break;
+            case 6: DeleteAtFirst(&first);
+                    break;
+            case 7: DeleteAtLast1(&first);
+                    break;
+            case 8: DeleteAtLast2(&first);
+                    break;
+            case 9: DeleteAtPosition(&first);
                     break;
         }
     }while(choice != 0);
