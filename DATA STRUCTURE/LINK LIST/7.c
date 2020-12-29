@@ -29,7 +29,7 @@ void main()
     int choice;
     do
     {
-        printf("--------------------------------********************************-------------------------------------------\n")
+        printf("--------------------------------********************************-------------------------------------------\n");
         printf("\n1) Create Linked List\n2) Display Linked List\n3) Exit\nEnter the Choice: ");
         scanf("%d",&choice);
         switch(choice)

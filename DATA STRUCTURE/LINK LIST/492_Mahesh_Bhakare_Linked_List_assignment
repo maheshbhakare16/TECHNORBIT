@@ -122,8 +122,6 @@ void DisplayLinkedList(struct node* tempnode)
 }
 
 
-//-------------------------------------------------********************************-------------------------------------------------------------
-
 
 
 /*
@@ -226,7 +224,8 @@ void SearchElement(struct node* head)
 }
  
 
-//-------------------------------------------------********************************-------------------------------------------------------------
+ 
+ 
  
 
 /*
@@ -342,8 +341,6 @@ void DisplayMerged(struct node* head)
     }
 }
 
-
-//-------------------------------------------------********************************-------------------------------------------------------------
 
 
 /*
@@ -474,9 +471,6 @@ void ReplaceElement(struct node* head)
 }
 
 
-//-------------------------------------------------********************************-------------------------------------------------------------
-
-
 /*
 Title- 5. Write a C program to find number of occurrence of given number in given
 linked list.
@@ -579,9 +573,6 @@ void ElementOccurence(struct node* head)
 }
 
 
-
-//-------------------------------------------------********************************-------------------------------------------------------------
-
 /*
 Title-  6. Write a C program to print singly linked list in reverse order.
 Author- Bhakare Mahesh Santosh
@@ -672,9 +663,6 @@ void ReversedLinkedList(struct node* tempnode)
 }
 
 
-
-//-------------------------------------------------********************************-------------------------------------------------------------
-
 /*
 Title- 7. Write a C program to create linked list with multiple strings.
 Author- Bhakare Mahesh Santosh
@@ -704,7 +692,7 @@ void main()
     int choice;
     do
     {
-        printf("--------------------------------********************************-------------------------------------------\n")
+        printf("--------------------------------********************************-------------------------------------------\n");
         printf("\n1) Create Linked List\n2) Display Linked List\n3) Exit\nEnter the Choice: ");
         scanf("%d",&choice);
         switch(choice)
@@ -786,10 +774,6 @@ void DisplayLinkedList(struct node* tempnode)
         tempnode = tempnode->next;
     }
 }
-
-
-
-//-------------------------------------------------********************************-------------------------------------------------------------
 
 
 /*
@@ -953,8 +937,6 @@ void DisplayLinkedList(struct node* even, struct node* odd)
 
 
 
-//-------------------------------------------------********************************-------------------------------------------------------------
-
 /*
 Title- 9. Write a C program to create linked list to store student information and print 5 student information using singly linked list.
 Author- Bhakare Mahesh Santosh
@@ -1072,8 +1054,6 @@ void DisplayLinkedList(struct node* head)
     
 }
 
-
-//-------------------------------------------------********************************-------------------------------------------------------------
 
 
 
@@ -1234,4 +1214,4 @@ void SortLinkedList(struct node* head)
 }
 
  
-
+ 
