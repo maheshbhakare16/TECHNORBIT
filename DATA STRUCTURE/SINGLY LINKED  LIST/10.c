@@ -16,13 +16,16 @@ struct node* CreateNode();
 void CreateLinkedList(struct node**);
 void DisplayLinkedList(struct node*);
 void SortLinkedList(struct node*);
-
-struct node
+struct student
 {
     int roll_no;
     char* name;
     char* address;
     float marks;
+};
+struct node
+{
+    struct student s;
     struct node* next;
 };
 
@@ -80,13 +83,13 @@ struct node* CreateNode()
     else
     {
         printf("Enter the Roll No. for student: ");
-        scanf("%d",&(newnode -> roll_no));
+        scanf("%d",&(newnode -> s.roll_no));
         printf("Enter the Name for student: ");
-        newnode->name = AcceptString();
+        newnode->s.name = AcceptString();
         printf("Enter the Address for student: ");
-        newnode->address = AcceptString();
+        newnode->s.address = AcceptString();
         printf("Enter the marks for student: ");
-        scanf("%f",&(newnode -> marks));
+        scanf("%f",&(newnode -> s.marks));
         newnode -> next = NULL;
     }
     return newnode;
@@ -115,7 +118,7 @@ void DisplayLinkedList(struct node* head)
 {
     while(head != NULL)
     {
-        printf("\t|\t%d  \t|\t%s\t|\t%s\t|\t%f\t|\n",head->roll_no,head->name,head->address,head->marks);
+        printf("\t|\t%d  \t|\t%s\t|\t%s\t|\t%f\t|\n",head->s.roll_no,head->s.name,head->s.address,head->s.marks);
         head = head -> next;
     }
     
@@ -124,31 +127,17 @@ void DisplayLinkedList(struct node* head)
 void SortLinkedList(struct node* head)
 {
     struct node* tempnode = NULL;
-    char* str;
-    int roll;
-    float marks;
+    struct student temp;
     while(head != NULL)
     {
         tempnode = head->next;
         while(tempnode != NULL)
         {
-            if(head->marks > tempnode->marks)
+            if(head->s.marks > tempnode->s.marks)
             {
-                roll = head->roll_no;
-                head->roll_no = tempnode->roll_no;
-                tempnode->roll_no = roll;
-                
-                str = head->name;
-                head->name = tempnode->name;
-                tempnode->name = str;
-                
-                str = head->address;
-                head->address = tempnode->address;
-                tempnode->address = str;
-                
-                marks = head->marks;
-                head->marks = tempnode->marks;
-                tempnode->marks = marks;
+                temp = head->s;
+                head->s = tempnode->s;
+                tempnode->s = temp;
             }
             tempnode = tempnode->next;
         }

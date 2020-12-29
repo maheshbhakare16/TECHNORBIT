@@ -15,8 +15,8 @@ Batch- TechnOrbit(PPA-8)
 
 struct node* CreateNode();
 void CreateLinkedList(struct node**);
-void EvenOddSeperator(struct node**, struct node**, struct node**);
-void DisplayLinkedList(struct node*, struct node*);
+void EvenOddSeperator(struct node*, struct node**, struct node**);
+void DisplayLinkedList(struct node*);
 
 struct node
 {
@@ -32,18 +32,22 @@ void main()
     int choice;
     do
     {
-        printf("\n1) Create Linked List\n2) Seperate Even Odd\n3) Display Linked List\n4) Exit\nEnter the Choice: ");
+        printf("\n1) Create Linked List\n2) Display Original Linked List\n3) Seperate Even Odd\n4) Display Even Linked List\n5) Display Odd Linked List\n6) Exit\nEnter the Choice: ");
         scanf("%d",&choice);
         switch(choice)
         {
             case 1: CreateLinkedList(&first);
                     break;
-            case 2: EvenOddSeperator(&first, &even, &odd);
+            case 2: DisplayLinkedList(first);
                     break;
-            case 3: DisplayLinkedList(even, odd);
+            case 3: EvenOddSeperator(first, &even, &odd);
+                    break;
+            case 4: DisplayLinkedList(even);
+                    break;
+            case 5: DisplayLinkedList(odd);
                     break;
         }
-    }while(choice!=4);
+    }while(choice!=6);
     
 }
 
@@ -58,8 +62,6 @@ struct node* CreateNode()
     }
     else
     {
-        printf("Enter the data for newnode: ");
-        scanf("%d",&(newnode -> data));
         newnode -> next = NULL;
     }
     return newnode;
@@ -71,6 +73,8 @@ void CreateLinkedList(struct node** head)
     struct node* newnode = NULL;
     struct node* tempnode = *head;
     newnode = CreateNode();
+    printf("Enter the data for newnode: ");
+    scanf("%d",&(newnode -> data));
     if(*head == NULL)
     {
         *head = newnode;
@@ -85,23 +89,37 @@ void CreateLinkedList(struct node** head)
     }
 }
 
-void EvenOddSeperator(struct node** head, struct node** even, struct node** odd)
+void EvenOddSeperator(struct node* head, struct node** even, struct node** odd)
 {
-    struct node *tempnode = NULL, *tempnode2 = NULL;
-    if(*head == NULL)
+    struct node* tempnode = NULL;
+    while(*even != NULL)
+    {
+        tempnode = (*even)->next;
+        free(*even);
+        *even = tempnode;
+    }
+    while(*odd != NULL)
+    {
+        tempnode = (*odd)->next;
+        free(*odd);
+        *odd = tempnode;
+    }
+    
+    if(head == NULL)
     {
         printf("List List not available....\n");
     }
     else
     {
-        while(*head != NULL)
+        while(head != NULL)
         {
-            tempnode2 = (*head)->next;
-            if(((*head)->data)%2 == 0)
+            
+            if((head->data)%2 == 0)
             {
                 if(*even == NULL)
                 {
-                    *even = *head;
+                    *even = CreateNode();
+                    (*even)->data = head->data;
                     (*even)->next = NULL;
                 }
                 else
@@ -111,7 +129,8 @@ void EvenOddSeperator(struct node** head, struct node** even, struct node** odd)
                     {
                         tempnode = tempnode->next;
                     }
-                    tempnode->next = *head;
+                    tempnode->next = CreateNode();
+                    tempnode->next->data = head->data;
                     tempnode->next->next = NULL;
                 }
             }
@@ -119,7 +138,8 @@ void EvenOddSeperator(struct node** head, struct node** even, struct node** odd)
             {
                 if(*odd == NULL)
                 {
-                    *odd = *head;
+                    *odd = CreateNode();
+                    (*odd)->data = head->data;
                     (*odd)->next = NULL;
                 }
                 else
@@ -129,34 +149,25 @@ void EvenOddSeperator(struct node** head, struct node** even, struct node** odd)
                     {
                         tempnode = tempnode->next;
                     }
-                    tempnode->next = *head;
+                    tempnode->next = CreateNode();
+                    tempnode->next->data = head->data;
                     tempnode->next->next = NULL;
                 }
             }
-            *head = tempnode2;
+            head = head->next;
         }
     }
     
     
 }
 
-void DisplayLinkedList(struct node* even, struct node* odd)
+void DisplayLinkedList(struct node* head)
 {
-    printf("\nEven data = [");
-    while(even != NULL)
+    while(head != NULL)
     {
-        printf("%d, ",even->data);
-        even = even->next;
+        printf("%d -> ",head->data);
+        head = head->next;
     }
-    printf("]\n");
-    
-    printf("\nOdd data = [");
-    while(odd != NULL)
-    {
-        printf("%d, ",odd->data);
-        odd = odd->next;
-    }
-    printf("]\n");
 }
 
 
