@@ -67,8 +67,12 @@ void CreateLinkedList(struct node** head)
 {
     struct node *newnode = NULL,*tempnode = *head;
     newnode = CreateNode();
-    printf("Enter the value for newnode: ");
-    scanf("%d",&(newnode->data));
+    if(newnode != NULL)
+    {
+        printf("Enter the value for newnode: ");
+        scanf("%d",&(newnode->data));
+    }
+    
     if(*head == NULL)
     {
         *head = newnode;
