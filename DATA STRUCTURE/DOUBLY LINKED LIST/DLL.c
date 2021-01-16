@@ -1,3 +1,13 @@
+
+
+
+/*
+Title- Doubly Linked List Operations
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/ 
+
 #include<stdio.h>
 #include<stdlib.h>
 struct node
@@ -6,21 +16,21 @@ struct node
     struct node* prev;
     struct node* next;
 };
-
+int CountNode(struct node*);
 struct node* CreateNode();
-void CreateLinkedList(struct node**);
+void CreateLinkedList(struct node**,struct node**);
 void DisplayLinkedList(struct node*);
 void ReverseDisplay(struct node*);
-void InsertAtFirst(struct node**);
-void InsertAtLast(struct node**);
-void InsertAtPosition(struct node**);
-void DeleteAtFirst(struct node**);
-void DeleteAtLast(struct node**);
-void DeleteAtPosition(struct node**);
+void InsertAtFirst(struct node**,struct node**);
+void InsertAtLast(struct node**,struct node**);
+void InsertAtPosition(struct node**,struct node**);
+void DeleteAtFirst(struct node**,struct node**);
+void DeleteAtLast(struct node**,struct node**);
+void DeleteAtPosition(struct node**,struct node**);
 
 void main()
 {
-    struct node* first = NULL;
+    struct node *first = NULL, *last = NULL;
     int choice;
     do
     {
@@ -29,23 +39,23 @@ void main()
         scanf("%d",&choice);
         switch(choice)
         {
-            case 1: CreateLinkedList(&first);
+            case 1: CreateLinkedList(&first,&last);
                     break;
             case 2: DisplayLinkedList(first);
                     break;
-            case 3: ReverseDisplay(first);
+            case 3: ReverseDisplay(last);
                     break;
-            case 4: InsertAtFirst(&first);
+            case 4: InsertAtFirst(&first,&last);
                     break;
-            case 5: InsertAtLast(&first);
+            case 5: InsertAtLast(&first,&last);
                     break;
-            case 6: InsertAtPosition(&first);
+            case 6: InsertAtPosition(&first,&last);
                     break;
-            case 7: DeleteAtFirst(&first);
+            case 7: DeleteAtFirst(&first,&last);
                     break;
-            case 8: DeleteAtLast(&first);
+            case 8: DeleteAtLast(&first,&last);
                     break;
-            case 9: DeleteAtPosition(&first);
+            case 9: DeleteAtPosition(&first,&last);
                     break;
         }
     }while(choice!=0);
@@ -60,6 +70,8 @@ int CountNode(struct node* head)
     }
     return count;
 }
+
+
 struct node* CreateNode()
 {
     struct node* newnode =  NULL;
@@ -77,25 +89,26 @@ struct node* CreateNode()
     }
     return newnode;
 }
-void CreateLinkedList(struct node** head)
+
+
+
+void CreateLinkedList(struct node** first, struct node** last)
 {
-    struct node* tempnode = *head;
     struct node* newnode = NULL;
     newnode = CreateNode();
-    if(*head == NULL)
+    if(*first == NULL)
     {
-        *head = newnode;
+        *first = *last = newnode;
     }
     else
     {
-        while(tempnode->next != NULL)
-        {
-            tempnode = tempnode->next;
-        }
-        tempnode->next = newnode;
-        newnode->prev = tempnode;
+        newnode->prev = *last;
+        (*last)->next = newnode;
+        *last = newnode;
     }
 }
+
+
 void DisplayLinkedList(struct node* head)
 {
     printf("Linked List In Forward Order: ");
@@ -105,12 +118,10 @@ void DisplayLinkedList(struct node* head)
         head = head->next;
     }
 }
+
+
 void ReverseDisplay(struct node* head)
 {
-    while(head->next != NULL)
-    {
-        head = head->next;
-    }
     printf("Linked List In Backward Order: ");
     while(head != NULL)
     {
@@ -118,46 +129,50 @@ void ReverseDisplay(struct node* head)
         head = head->prev;
     }
 }
-void InsertAtFirst(struct node** head)
+
+void InsertAtFirst(struct node** first, struct node** last)
 {
     struct node* newnode = NULL;
-    if(*head == NULL)
+    newnode =CreateNode();
+    if(*first == NULL)
     {
-        CreateLinkedList(head);
+        *first = *last = newnode;
     }
     else
     {
-        newnode = CreateNode();
-        newnode->next = *head;
-        (*head)->prev = newnode;
-        *head = newnode;
+        newnode->next = *first;
+        (*first)->prev = newnode;
+        *first = newnode;
     }
     
 }
-void InsertAtLast(struct node** head)
+
+
+void InsertAtLast(struct node** first, struct node** last)
 {
-    CreateLinkedList(head);
+    CreateLinkedList(first, last);
 }
-void InsertAtPosition(struct node** head)
+
+void InsertAtPosition(struct node** first, struct node** last)
 {
-    struct node* tempnode = *head;
+    struct node* tempnode = *first;
     struct node* newnode = NULL;
     int n,pos,i;
-    n= CountNode(*head);
+    n= CountNode(*first);
     printf("enter the position where you want to insert a new node: ");
     scanf("%d",&pos);
     if(pos == 1)
     {
-        InsertAtFirst(head);
+        InsertAtFirst(first, last);
     }
     else if(pos == n+1)
     {
-        InsertAtLast(head);
+        InsertAtLast(first, last);
     }
     else if(pos < 1 || pos > n+1)
     {
         printf("Invalid Position....Please Enter Position Again...\n");
-        InsertAtPosition(head);
+        InsertAtPosition(first, last);
     }
     else if(pos > 1 && pos < n+1)
     {
@@ -173,58 +188,59 @@ void InsertAtPosition(struct node** head)
     }
 }
 
-void DeleteAtFirst(struct node** head)
+void DeleteAtFirst(struct node** first, struct node** last)
 {
-    struct node* tempnode = *head;
-    if(*head == NULL)
+    struct node* tempnode = *first;
+    if(*first == NULL)
     {
         printf("Linked List not Available....\n");
     }
+    else if((*first)->next == NULL)
+    {
+        free(*first);
+        *first = *last = NULL;
+    }
     else
     {
-        *head = (*head)->next;
-        (*head)->prev = NULL;
+        *first= (*first)->next;
+        (*first)->prev = NULL;
         free(tempnode);
         tempnode = NULL;
     }
 }
-void DeleteAtLast(struct node** head)
+void DeleteAtLast(struct node** first , struct node** last)
 {
-    struct node* tempnode = *head;
-    if(*head == NULL)
+    if(*first == NULL)
     {
         printf("Linked List not Available...\n");
     }
-    else if((*head)->next == NULL)
+    else if((*first)->next == NULL)
     {
-        free(*head);
-        *head = NULL;
+        free(*first);
+        *first = *last = NULL;
     }
     else
     {
-        while(tempnode->next != NULL)
-        {
-            tempnode = tempnode->next;
-        }
-        tempnode->prev->next = NULL;
-        free(tempnode);
-        tempnode = NULL;
+        *last = (*last)->prev;
+        free((*last)->next);
+        (*last)->next = NULL;
     }
 }
-void DeleteAtPosition(struct node** head)
+
+void DeleteAtPosition(struct node** first, struct node** last)
 {
-    struct node* tempnode = *head;
+    struct node* tempnode = *first;
     int n,pos,i;
     printf("Enter the position from where you want to delete element: ");
     scanf("%d",&pos);
-    n = CountNode(*head);
+    n = CountNode(*first);
     if(pos == 1)
     {
-        DeleteAtFirst(head);
+        DeleteAtFirst(first, last);
     }
     else if(pos == n)
     {
-        DeleteAtLast(head);
+        DeleteAtLast(first, last);
     }
     else if(pos > 1 && pos < n)
     {
@@ -240,6 +256,6 @@ void DeleteAtPosition(struct node** head)
     else if(pos < 1 || pos > n)
     {
         printf("Please enter the valid position...\n");
-        DeleteAtPosition(head);
+        DeleteAtPosition(first, last);
     }
 }
