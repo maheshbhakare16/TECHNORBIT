@@ -14,7 +14,7 @@ void display_list(int* arr, int n)
     printf("]\n");
 }
 
-void Quick_Sort(int* arr, int L, int H, int n)
+void Quick_Sort(int* arr, int L, int H)
 {
     
     int low,high,pivot,temp;
@@ -23,9 +23,14 @@ void Quick_Sort(int* arr, int L, int H, int n)
     high = H;
     while(low <= high)
     {
-        while(*(arr+low) < pivot)
+        while((low <= high) && (*(arr+low) < pivot))
         {
             low++;
+        }
+        if(low > high)
+        {
+        	low--;
+        	break;
         }
         while(*(arr+high) > pivot)
         {
@@ -46,11 +51,11 @@ void Quick_Sort(int* arr, int L, int H, int n)
     *(arr+high) = temp;
     if(L < high)
     {
-        Quick_Sort(arr, L, high-1,n);
+        Quick_Sort(arr, L, high-1);
     }
     if(H > low)
     {
-        Quick_Sort(arr,high+1,H,n);
+        Quick_Sort(arr,high+1,H);
     }
 }
 void main()
@@ -66,7 +71,7 @@ void main()
     }
     printf("Unsorted List is: ");
     display_list(arr,n);
-    Quick_Sort(arr,0,n-1,n);
+    Quick_Sort(arr,0,n-1);
     printf("Sorted List is: ");
     display_list(arr,n);
 }
