@@ -1,4 +1,11 @@
 
+/*
+Title- Quick Sort
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/ 
+
 
 #include<stdio.h>
 #include<stdlib.h>
