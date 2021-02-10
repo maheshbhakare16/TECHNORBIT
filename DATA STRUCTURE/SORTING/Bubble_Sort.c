@@ -10,6 +10,8 @@ Batch- TechnOrbit(PPA-8)
 #include<stdio.h>
 #include<stdlib.h>
 
+// --------------------- FUNCTION TO DISPLAY LIST ----------------------
+
 void display_list(int* arr, int n)
 {
     int i;
@@ -21,6 +23,8 @@ void display_list(int* arr, int n)
     printf("]\n");
 }
 
+// ------------------ FUNCTION TO SWAP -------------------
+
 void swap_list(int* a1, int* a2)
 {
     int temp;
@@ -29,6 +33,8 @@ void swap_list(int* a1, int* a2)
     *a2 = temp;
 }
 
+
+// --------------- FUNCTION TO BUBBLE SORT -----------------------
 void bubble_sort(int* arr , int n)
 {
     int i,itr,swapped_check;
@@ -54,6 +60,7 @@ void bubble_sort(int* arr , int n)
     }
 }
 
+// ---------------------- MAIN FUNCTION -------------------------
 void main()
 {
     int *arr ,n,i;

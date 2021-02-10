@@ -10,6 +10,7 @@ Batch- TechnOrbit(PPA-8)
 #include<stdio.h>
 #include<stdlib.h>
 
+// ------------------ FUNCTION TO DISPLAY LIST ----------------
 void display_list(int* arr, int n)
 { 
     int i;
@@ -21,6 +22,7 @@ void display_list(int* arr, int n)
     printf("]\n");
 }
 
+// ------ FUNCTION TO INSERTION SORT ----------------
 void Insertion_Sort(int* arr , int n)
 {
     int temp, hole, i;
@@ -42,6 +44,7 @@ void Insertion_Sort(int* arr , int n)
     }
     printf("***************************************************************************\n");
 }
+//------------ MAIN FUNCTION -------------------------
 void main()
 {
     int *arr , i , n;

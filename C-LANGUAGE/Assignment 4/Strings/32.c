@@ -28,6 +28,7 @@ void main()
             }
         }
     }
+//    ----------------- LOGIC TO COUNT WORDS IN STRING -----------
     i=0;
     l1:
     while(str[i]!='\0')

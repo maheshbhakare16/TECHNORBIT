@@ -1,5 +1,14 @@
+
+/*
+Title- Binary search with looping
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
 #include<stdio.h>
 #include<stdlib.h>
+
+// ------------ FUNCTION TO SORT --------------------
 void selection_sort(int arr[], int n)
 {
     int i,j,temp;
@@ -17,6 +26,7 @@ void selection_sort(int arr[], int n)
     }
 }
 
+// ----------------- FUNCTION TO BINARY SEARCH -------------------------
 int BinarySearch(int arr[], int n)
 {
     int search,first = 0,last = n-1,mid;
@@ -40,7 +50,7 @@ int BinarySearch(int arr[], int n)
     }
     return -1;
 }
-
+// ------------------ MAIN FUNCTION -----------------------
 void main()
 {
     int n, *arr, i,index;

@@ -40,6 +40,8 @@ void main()
     }while(choice != 3);
 }
 
+// ----------------------------------- FUNCTION TO CREATE NODE ------------------------------
+
 struct node* CreateNode()
 {
     struct node* newnode = NULL;
@@ -56,6 +58,8 @@ struct node* CreateNode()
     }
     return newnode;
 }
+
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -74,6 +78,8 @@ void CreateLinkedList(struct node** head)
         tempnode->next = newnode;
     }
 }
+
+// ----------- FUNCTION TO SEARCH ELEMENT IN LINKED LIST ---------------------
 void SearchElement(struct node* head)
 {
     int x,flag = 0,count = 0;  

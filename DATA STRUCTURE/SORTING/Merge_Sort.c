@@ -11,6 +11,7 @@ Batch- TechnOrbit(PPA-8)
 #include<stdio.h>
 #include<stdlib.h>
 
+// ---------------------- FUNCTION TO DISPLAY LIST ----------------------
 void display_list(int* arr, int n)
 {
     int i;
@@ -22,6 +23,7 @@ void display_list(int* arr, int n)
     printf("]\n");
 }
 
+// ---------------------- FUNCTION TO MERGE ARRAY (CONQUER ARRAY)-----------------------
 void merge(int* arr, int low, int mid, int high)
 {
     int i,j,k = 0, *arr2 = NULL;
@@ -63,6 +65,8 @@ void merge(int* arr, int low, int mid, int high)
     
 }
 
+// ------------------- FUNCTION TO MERGE SORT (DIVIDE ARRAY) ------------------------
+
 void merge_sort(int* arr, int low, int high)
 {
     int mid;
@@ -75,6 +79,7 @@ void merge_sort(int* arr, int low, int high)
     }
 }
 
+// --------------------- MAIN FUNCTION -------------------------
 void main()
 {
     int n, i, *arr = NULL;

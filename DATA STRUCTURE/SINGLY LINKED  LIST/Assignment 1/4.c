@@ -44,6 +44,8 @@ void main()
 }
 
 
+// ----------------------------------- FUNCTION TO CREATE NODE ------------------------------
+
 struct node* CreateNode()
 {
     struct node* newnode = NULL;
@@ -60,7 +62,7 @@ struct node* CreateNode()
     }
     return newnode;
 }
-
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -82,6 +84,8 @@ void CreateLinkedList(struct node** head)
 }
 
 
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
+
 void DisplayLinkedList(struct node* tempnode)
 {
     printf("Your Linked List is: ");
@@ -92,7 +96,7 @@ void DisplayLinkedList(struct node* tempnode)
     }
 }
 
-
+// -------------------- FUNCTION TO REPLACE ELEMENT IN LINKED LIST -----------------------
 void ReplaceElement(struct node* head)
 {
     int x,flag = 0;

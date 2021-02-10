@@ -35,7 +35,7 @@ void main()
     
     for(l=0;*(str1+l)!='\0';)
     {
-//     ------copying word from string 1-----
+//     ------copying word from string 1 TO STRING 4 -----
         while(*(str1+l)==32)
         {
             l++;
@@ -56,7 +56,7 @@ void main()
         }
         l=z;
         l++;
-//  -----  copying words from string 1 -----
+//  -----  copying words from string 1 TO STRING 3 -----
         count=0;
         for(j=0;*(str1+j)!='\0';)
         {

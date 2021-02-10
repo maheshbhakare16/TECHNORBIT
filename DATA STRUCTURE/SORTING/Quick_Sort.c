@@ -10,6 +10,8 @@ Batch- TechnOrbit(PPA-8)
 #include<stdio.h>
 #include<stdlib.h>
 
+
+// ------------------- FUNCTION TO DISPLAY LIST ----------------------
 void display_list(int* arr, int n)
 { 
     int i;
@@ -21,6 +23,7 @@ void display_list(int* arr, int n)
     printf("]\n");
 }
 
+// ---------------------- FUNCTION TO QUICK SORT --------------------------
 void Quick_Sort(int* arr, int L, int H)
 {
     
@@ -65,6 +68,8 @@ void Quick_Sort(int* arr, int L, int H)
         Quick_Sort(arr,high+1,H);
     }
 }
+
+// -------------- MAIN FUNCTION ----------------------------
 void main()
 {
     int* arr , i, n;

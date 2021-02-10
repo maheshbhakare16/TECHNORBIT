@@ -1,6 +1,16 @@
+
+
+/*
+Title- Binary search with recursion
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
+// ------------------- FUNCTION TO SELECTION SORT ----------------------
 void selection_sort(int* arr, int n)
 {
     int i,j,temp;
@@ -18,6 +28,7 @@ void selection_sort(int* arr, int n)
     }
 }
 
+// --------------- FUNCTION TO BINARY SEARCH WITH RECURSION -------------------------
 int BinarySearch(int* arr, int first, int last, int search)
 {
     int mid;
@@ -41,6 +52,8 @@ int BinarySearch(int* arr, int first, int last, int search)
     }
     return -1;
 }
+
+// ------------------ MAIN FUNCTION -----------------------
 void main()
 {
     int n, *arr, i,index,search;

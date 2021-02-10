@@ -42,6 +42,8 @@ void main()
 }
 
 
+// ----------------------------------- FUNCTION TO CREATE NODE ------------------------------
+
 struct node* CreateNode()
 {
     struct node* newnode = NULL;
@@ -59,6 +61,8 @@ struct node* CreateNode()
     return newnode;
 }
 
+
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -78,6 +82,9 @@ void CreateLinkedList(struct node** head)
         tempnode->next = newnode;
     }
 }
+
+//  ------------ FUNCTION TO COUNT NO. OF OCCURANCES OF ELEMENT IN LINKED LIST -------------------
+
 void ElementOccurence(struct node* head)
 {
     int element,count=0;

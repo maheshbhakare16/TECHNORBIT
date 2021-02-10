@@ -41,6 +41,8 @@ void main()
     }while(choice != 0);
 }
 
+// -------------------- FUNCTION TO CREATE NODE ---------------------
+
 struct node* CreateNode()
 {
     struct node* newnode = NULL;
@@ -54,6 +56,9 @@ struct node* CreateNode()
         newnode->next = NULL;
     }
 }
+
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
+
 void CreateLinkedList(struct node** head)
 {
     struct node* newnode = NULL;
@@ -77,6 +82,9 @@ void CreateLinkedList(struct node** head)
         tempnode->next = newnode;
     }
 }
+
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
+
 void DisplayLinkedList(struct node* head)
 {
     while(head != NULL)
@@ -85,6 +93,9 @@ void DisplayLinkedList(struct node* head)
         head = head->next;
     }
 }
+
+// ------------- FUNCTION TO FIND OUT SECOND LAST HEIGHEST NUMBER ------------------------
+
 void SecondHeighest(struct node* head)
 {
     struct node *tempnode1=NULL, *tempnode2 = NULL, *tempnode = NULL;

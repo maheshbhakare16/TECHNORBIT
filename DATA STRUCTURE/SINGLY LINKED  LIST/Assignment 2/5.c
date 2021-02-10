@@ -47,6 +47,8 @@ void main()
     
 }
 
+// -------------------- FUNCTION TO CREATE NODE ---------------------
+
 
 struct node* CreateNode()
 {
@@ -63,6 +65,8 @@ struct node* CreateNode()
     return newnode;
 }
 
+
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -87,7 +91,7 @@ void CreateLinkedList(struct node** head)
         tempnode->next = newnode;
     }
 }
-
+// ---------------------- FUNCTION TO SEPERATE EVEN NUMBERS ---------------------
 void EvenSeperator(struct node* head, struct node** even)
 {
     struct node* tempnode = NULL;
@@ -133,6 +137,8 @@ void EvenSeperator(struct node* head, struct node** even)
     
     
 }
+
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
 
 void DisplayLinkedList(struct node* head)
 {

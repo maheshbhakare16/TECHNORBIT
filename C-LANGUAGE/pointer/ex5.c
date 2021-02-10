@@ -1,3 +1,15 @@
+
+
+ 
+/*
+Title- 1. constant pointer to memory contains constant value .
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+
 #include<stdio.h>
 void main()
 {

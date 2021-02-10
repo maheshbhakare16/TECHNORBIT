@@ -49,6 +49,8 @@ void main()
     
 }
 
+// -------------------- FUNCTION TO ACCEPT STRING ---------------------------
+
 char* AcceptString()
 {
     int len = 1;
@@ -68,6 +70,8 @@ char* AcceptString()
     }
     return str;
 }
+
+// ----------------------------------- FUNCTION TO CREATE NODE ------------------------------
 
 struct node* CreateNode()
 {
@@ -92,6 +96,7 @@ struct node* CreateNode()
     return newnode;
 }
 
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -111,6 +116,9 @@ void CreateLinkedList(struct node** head)
         tempnode->next = newnode;
     }
 }
+
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
+
 void DisplayLinkedList(struct node* head)
 {
     while(head != NULL)
@@ -120,6 +128,9 @@ void DisplayLinkedList(struct node* head)
     }
     
 }
+
+
+// ------------------------ FUNCTION TO SORT LINKED LIST ----------------------------
 
 void SortLinkedList(struct node** head)
 {

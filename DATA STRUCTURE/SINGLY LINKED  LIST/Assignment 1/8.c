@@ -52,6 +52,8 @@ void main()
 }
 
 
+// ----------------------------------- FUNCTION TO CREATE NODE ------------------------------
+
 struct node* CreateNode()
 {
     struct node* newnode = NULL;
@@ -67,6 +69,7 @@ struct node* CreateNode()
     return newnode;
 }
 
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -91,6 +94,8 @@ void CreateLinkedList(struct node** head)
         tempnode->next = newnode;
     }
 }
+
+// ---------------------- FUNCTION TO SEPERATE EVEN ODD ELEMENTS -----------------------------
 
 void EvenOddSeperator(struct node* head, struct node** even, struct node** odd)
 {
@@ -128,6 +133,8 @@ void EvenOddSeperator(struct node* head, struct node** even, struct node** odd)
                 else
                 {
                     tempnode = *even;
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
+
                     while(tempnode->next != NULL)
                     {
                         tempnode = tempnode->next;
@@ -163,6 +170,8 @@ void EvenOddSeperator(struct node* head, struct node** even, struct node** odd)
     
     
 }
+
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
 
 void DisplayLinkedList(struct node* head)
 {

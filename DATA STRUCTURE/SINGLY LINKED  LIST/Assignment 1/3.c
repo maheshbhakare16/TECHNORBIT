@@ -48,6 +48,8 @@ void main()
 }
 
 
+// ----------------------------------- FUNCTION TO CREATE NODE ------------------------------
+
 struct node* CreateNode()
 {
     struct node* newnode = NULL;
@@ -62,6 +64,8 @@ struct node* CreateNode()
     }
     return newnode;
 }
+
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -86,6 +90,8 @@ void CreateLinkedList(struct node** head)
         tempnode->next = newnode;
     }
 }
+
+// --------------------- FUNCTION TO MERGE TWO LINKED LISTS IN THIRD --------------
 
 void MergeLinkedList(struct node* first, struct node* second, struct node** third)
 {
@@ -136,6 +142,8 @@ void MergeLinkedList(struct node* first, struct node* second, struct node** thir
     }
     printf("Linked List Merged Successfully.....\n");
 }
+
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
 
 void DisplayLinkedList(struct node* head)
 {

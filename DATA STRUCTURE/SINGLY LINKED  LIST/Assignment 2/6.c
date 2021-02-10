@@ -43,6 +43,8 @@ void main()
 }
 
 
+// -------------------- FUNCTION TO CREATE NODE ---------------------
+
 struct node* CreateNode()
 {
     struct node* newnode = NULL;
@@ -58,6 +60,9 @@ struct node* CreateNode()
 }
 
 
+
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
+
 void DisplayLinkedList(struct node* head)
 {
     while(head != NULL)
@@ -67,6 +72,7 @@ void DisplayLinkedList(struct node* head)
     }
 }
 
+// ----------------- FUNCTION TO ACCEPT STRING -------------------
 
 void AcceptString(struct node** head)
 {
@@ -96,7 +102,7 @@ void AcceptString(struct node** head)
     }while((newnode->data) != '\n');
 }
 
-
+// ----------- FUNCTION TO COUNT NUMBERS IN STRING -----------------
 void NumberCount(struct node* head)
 {
     int count = 0;

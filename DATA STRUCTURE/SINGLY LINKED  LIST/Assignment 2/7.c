@@ -49,6 +49,8 @@ void main()
     }while(choice != 0);
 }
 
+// -------------------- FUNCTION TO CREATE NODE ---------------------
+
 
 struct node* CreateNode()
 {
@@ -65,6 +67,8 @@ struct node* CreateNode()
 }
 
 
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
+
 void DisplayLinkedList(struct node* head)
 {
     while(head != NULL)
@@ -75,6 +79,7 @@ void DisplayLinkedList(struct node* head)
     printf("\n");
 }
 
+// -------------------- function to accept strings ------------------
 
 void AcceptString(struct node** head)
 {
@@ -104,7 +109,7 @@ void AcceptString(struct node** head)
     }while((newnode->data) != '\n');
 }
 
-
+// --------------------- FUNCTION TO ANAGRAM CHECK -----------------------
 void AnagramCheck(struct node* first, struct node* second)
 {
     int i = 1,j;

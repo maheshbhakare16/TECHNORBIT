@@ -60,6 +60,9 @@ void main()
         }
     }while(choice!=0);
 }
+
+// ----------------- FUNCTION TO COUNT NODES -----------------
+
 int CountNode(struct node* head)
 {
     int count = 0;
@@ -71,7 +74,7 @@ int CountNode(struct node* head)
     return count;
 }
 
-
+// ------------------ FUNCTION TO CREATE NODE ----------------
 struct node* CreateNode()
 {
     struct node* newnode =  NULL;
@@ -90,7 +93,7 @@ struct node* CreateNode()
     return newnode;
 }
 
-
+// --------------- FUNCTION TO JOIN NODES(LINK LIST CREARTION) ------------------
 
 void CreateLinkedList(struct node** first, struct node** last)
 {
@@ -108,7 +111,7 @@ void CreateLinkedList(struct node** first, struct node** last)
     }
 }
 
-
+// ---------------- FUNCTION TO DISPLAY LINKED LIST -----------------------
 void DisplayLinkedList(struct node* head)
 {
     printf("Linked List In Forward Order: ");
@@ -119,7 +122,7 @@ void DisplayLinkedList(struct node* head)
     }
 }
 
-
+// ---------------- FUNCTION TO DISPLAY REVERSED LINKED LIST -----------------------
 void ReverseDisplay(struct node* head)
 {
     printf("Linked List In Backward Order: ");
@@ -129,7 +132,7 @@ void ReverseDisplay(struct node* head)
         head = head->prev;
     }
 }
-
+// ---------------- FUNCTION TO INSERT AT FIRST -----------------------
 void InsertAtFirst(struct node** first, struct node** last)
 {
     struct node* newnode = NULL;
@@ -146,13 +149,14 @@ void InsertAtFirst(struct node** first, struct node** last)
     }
     
 }
-
+// -------------------- FUNCTION TO INSERT AT LAST -----------------------------
 
 void InsertAtLast(struct node** first, struct node** last)
 {
     CreateLinkedList(first, last);
 }
 
+// -------------------- FUNCTION TO  INSERT AT POSITION -----------------------------
 void InsertAtPosition(struct node** first, struct node** last)
 {
     struct node* tempnode = *first;
@@ -188,6 +192,7 @@ void InsertAtPosition(struct node** first, struct node** last)
     }
 }
 
+// -------------------- FUNCTION TO  DELETE AT FIRST--------------------------
 void DeleteAtFirst(struct node** first, struct node** last)
 {
     struct node* tempnode = *first;
@@ -208,6 +213,7 @@ void DeleteAtFirst(struct node** first, struct node** last)
         tempnode = NULL;
     }
 }
+// ------------------- FUNCTION TO DELETE AT LAST ----------------------
 void DeleteAtLast(struct node** first , struct node** last)
 {
     if(*first == NULL)
@@ -227,6 +233,7 @@ void DeleteAtLast(struct node** first , struct node** last)
     }
 }
 
+// -------------------- FUNCTION TO DELETE AT POSITION -----------------------------
 void DeleteAtPosition(struct node** first, struct node** last)
 {
     struct node* tempnode = *first;

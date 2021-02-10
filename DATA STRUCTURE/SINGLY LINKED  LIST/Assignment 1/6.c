@@ -41,6 +41,8 @@ void main()
     
 }
 
+// ----------------------------------- FUNCTION TO CREATE NODE ------------------------------
+
 
 struct node* CreateNode()
 {
@@ -59,6 +61,7 @@ struct node* CreateNode()
     return newnode;
 }
 
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -79,7 +82,7 @@ void CreateLinkedList(struct node** head)
     }
 }
 
-
+//  ------------------ FUNCTION TO REVERSE LINKED LIST ---------------------
 void ReversedLinkedList(struct node* tempnode)
 {
    if(tempnode != NULL)

@@ -28,6 +28,7 @@ void main()
     }
     for(j=0;j<=i;j++,i--)
     {
+//      -------------------- CHECKING STRTING AND ENDING CHARACTERS OF STRINGS ---------------
         if(str[j]!=str[i])
         {
             flag=1;

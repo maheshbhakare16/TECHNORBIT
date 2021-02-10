@@ -1,6 +1,15 @@
+
+/*
+Title- LINEAR SEARCH
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
 #include<stdio.h>
 void LinearSearch(int* , int);
 
+// ---------------------- MAIN FUNCTION -------------------
 void main()
 {
     int arr[10], i, n;
@@ -14,6 +23,7 @@ void main()
     LinearSearch(arr,n);
 }
 
+// -------------------- FUNCTION TO LINEAR SEARCH -----------------------
 void LinearSearch(int* arr, int n)
 {
     int search,i,flag = 0;

@@ -47,6 +47,8 @@ void main()
 }
 
 
+// -------------------- FUNCTION TO CREATE NODE ---------------------
+
 struct node* CreateNode()
 {
     struct node* newnode = NULL;
@@ -64,6 +66,8 @@ struct node* CreateNode()
     return newnode;
 }
 
+
+// ------------------- FUNCTION TO JOIN NODES (LINK LIST CREATION) -------------------
 
 void CreateLinkedList(struct node** head)
 {
@@ -83,6 +87,8 @@ void CreateLinkedList(struct node** head)
         tempnode->next = newnode;
     }
 }
+
+// ----------------- FUNCTION TO SORT LINKED LIST IN DESENDING ORDER -----------------------
 
 void SortLinkedListDesending(struct node** head)
 {
@@ -113,6 +119,8 @@ void SortLinkedListDesending(struct node** head)
     }
 }
 
+// -------------- FUNCTION TO SORT LINKED LIST IN ASSENDING ORDER ------------------------
+
 void SortLinkedListAssending(struct node** head)
 {
     struct node *tempnode1=NULL,*tempnode2=NULL;
@@ -142,6 +150,8 @@ void SortLinkedListAssending(struct node** head)
     }
 }
 
+
+// ----------------------- FUNCTION TO DISPLAY LINKED LIST -------------------------
 
 void DisplayLinkedList(struct node* tempnode)
 {

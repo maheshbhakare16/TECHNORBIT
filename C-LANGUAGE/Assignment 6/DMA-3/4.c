@@ -20,6 +20,7 @@ void main()
     {
         *(p+i)=(int*)malloc(rc*sizeof(int));
     }
+//     ---------- ACCEPTING MATRIX -------------------
     printf("Enter elements in matrix: \n");
     for(i=0;i<rc;i++)
     {
@@ -28,6 +29,7 @@ void main()
             scanf("%d",(*(p+i)+j));
         }
     }
+//    -------------- CHECKING MATRIX ELEMENTS ----------
     for(i=0;i<rc;i++)
     {
         for(j=0;j<rc;j++)
