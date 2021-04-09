@@ -1,0 +1,159 @@
+/*
+Title- 1.Write a C++ program to find power of any number x^y
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<iostream>
+int main()
+{
+    int i,x,y,power=1;
+    std::cout<<"Please Enter X: ";
+    std::cin>>x;
+    std::cout<<"Please Enter Power Y: ";
+    std::cin>>y;
+    for(i=0;i<y;i++)
+    {
+        power*=x;
+    }
+    std::cout<<x<<"^"<<y<<" = "<<power<<std::endl;
+    return 0;
+}
+
+/*
+Title- 2.Write a C++ program to check valid email id using character array.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<iostream>
+
+int main()
+{
+    char arr[100],i,flag=0;
+    std::cout<<"Enter EmailID: ";
+    fgets(arr,100,stdin);
+    for(i=0;arr[i]!='\0';i++)
+    {
+        if(arr[i] == '@')
+        {
+            flag = 1;
+            break;
+        }
+    }
+    if(flag == 1)
+    {
+        std::cout<<"Valid Email ID.....!"<<std::endl;
+        
+    }
+    else
+    {
+        std::cout<<"Invalid Email ID.....!"<<std::endl;
+    }
+    return 0;
+}
+
+/*
+Title- 3.Write a C++ program to convert days into years, weeks and days
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<iostream>
+
+int main()
+{
+    int days,year,weeks,day;
+    std::cout<<"Enter Days: ";
+    std::cin>>days;
+    year = days/365;
+    weeks = (days-(year*365))/7;
+    day = ((days-(year*365)) + (weeks*7));
+    std::cout<<"Years: "<<year<<" Weeks: "<<weeks<<" Days: "<<day<<std::endl;
+    return 0;
+}
+
+/*
+Title- 4.Write a C++ program Fibonacci number How to find out if a given number is a Fibonacci number or not.
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+
+#include<iostream>
+int main()
+{
+    int num,i=0,j=1,k,flag=0;
+    std::cout<<"Enter Number to Find in Febonicii Series: ";
+    std::cin>>num;
+    if(num==0)
+    {
+        flag =1;
+    }
+    else
+    {
+        while(1)
+        {
+            k=i;
+            i=i+j;
+            if(i <= num)
+            {
+                if(i == num)
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+            j=k;
+        
+        }
+    }
+    if(flag == 1)
+    {
+        std::cout<<"Valid......!"<<std::endl;
+    }
+    else
+    {
+        std::cout<<"Invalid......!"<<std::endl;
+    }
+    return 0;
+}
+
+/*
+Title- 5.Write a C++ program to find the last occurrence position of the number in the given array
+Author- Bhakare Mahesh Santosh
+ID- 492
+Batch- TechnOrbit(PPA-8)
+*/
+
+#include<iostream>
+
+int main()
+{
+    int arr[10],i,pos,num;
+    std::cout<<"Enter array Emements: ";
+    for(i=0;i<10;i++)
+    {
+        std::cin>>arr[i];
+    }
+    std::cout<<"Enter number to find last occurence: ";
+    std::cin>>num;
+    for(i=0;i<10;i++)
+    {
+        if(arr[i]==num)
+        {
+            pos = i;
+        }
+    }
+    std::cout<<"Last occurence position of number is: "<<pos<<std::endl;
+    return 0;
+}
