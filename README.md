@@ -30,4 +30,14 @@
             |- INSERTION
             |- QUICK
             |- MERGE
-        
+        |- STACK
+            |- USING ARRAY (STATICALLY)
+            |- DYNAMICALLY
+        |- QUEUE
+            |- LINEAR QUEUE (STATICALLY AND DYNAMICALLY BOTH)
+            |- CIRCULAR QUEUE (STATICALLY)
+
+#   |- C++
+        |- HISTORY OF C++
+        |- BASIC PROGRAM OF C++
+        }- 
