@@ -8,10 +8,11 @@ class Person
 //         name = "Ram"; // error cannot assign value to final data member
     }
     {
-        this.age = 19;
+        
     }
     Person()
     {
+    this.age = 19;
 //     this.age = 20;// error cannot assign value to final data member
     }
     public static void main(String args[])

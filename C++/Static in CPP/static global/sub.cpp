@@ -1,4 +1,5 @@
-#include<stdio.h>
+
+#include<iostream>
 extern int a,b;
 extern int x; //we cannot use x here because x is made static in main.c
 void sub()
@@ -7,6 +8,6 @@ void sub()
 a++;
 int c;
 c=a-b;
-printf("sub is=%d\n",c);
+std::cout<<"Substraction is: "<<c<<std::endl;
 }
 

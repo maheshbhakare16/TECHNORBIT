@@ -18,8 +18,10 @@ class Main
     {
         Animal a = new Animal();
         Animal l = new Lion();
+        Lion li= new Lion();
         a.eat();
         l.eat();
+        li.eat();
         
     }
 }
