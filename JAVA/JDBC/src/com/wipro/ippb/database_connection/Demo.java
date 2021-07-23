@@ -1,12 +1,13 @@
 package com.wipro.ippb.database_connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.Scanner;
 class Demo
 {
-	public static void main(String args[]) throws Exception
+	public static void main(String args[])
 	{
 //      com.mysql.cj.jdbc.Driver obj = new com.mysql.cj.jdbc.Driver();
 //      Class.forName("com.mysql.cj.jdbc.Driver");
@@ -15,17 +16,19 @@ class Demo
 
 //  ----------------------------------- CONNECTION ESTABLISH -------------------------------
 		Connection con = null;
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","mahesh12@");
-		Scanner sc = new Scanner(System.in);
-		if(con == null)
+		try
 		{
-			System.out.println("Not Established");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","mahesh12@");
+            Scanner sc = new Scanner(System.in);
+            if(con == null)
+            {
+                throw new SQLException();
 			
-		}
-		else
-		{
+            }
+            else
+            {
 
-// 		--------------------------------- CREATE DATABASE -----------------------------------
+//          --------------------------------- CREATE DATABASE -----------------------------------
 
 			int count;
 // 			String dbname = sc.next();
@@ -182,6 +185,22 @@ class Demo
 			{
                 System.out.println("database dropped...");
 			}
-        }	
+        }
+    }
+    catch(Exception e)
+    {
+        System.out.println(e.getMessage());
+    }
+    finally
+    {
+        try
+        {
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
 	}
 }
