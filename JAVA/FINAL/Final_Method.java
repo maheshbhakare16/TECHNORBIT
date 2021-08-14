@@ -11,11 +11,11 @@ class Student extends Person
 {
     public int roll_no;
     public int marks;
-    void setName() // cannot override final method
+/*    void setName() // cannot override final method
     {
     super.name = "Ram";
     }
-    
+    */
 }
 
 class Main
